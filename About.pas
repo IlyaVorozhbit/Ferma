@@ -47,37 +47,41 @@ implementation
 procedure TAbout_Form.FormCreate(Sender: TObject);
 type
   verinfo = record
-              dwSignature:longint;
-              dwStrucVersion:longint;
-              dwFileVersionMS:longint;
-              dwFileVersionLS:longint;
-              dwProductVersionMS:longint;
-              dwProductVersionLS:longint;
-              dwFileFlagsMask:longint;
-              dwFileFlags:longint;
-              dwFileOS:longint;
-              dwFileType:longint;
-              dwFileSubtype:longint;
-              dwFileDateMS:longint;
-              dwFileDateLS:longint;
-            end;
+    dwSignature:longint;
+    dwStrucVersion:longint;
+    dwFileVersionMS:longint;
+    dwFileVersionLS:longint;
+    dwProductVersionMS:longint;
+    dwProductVersionLS:longint;
+    dwFileFlagsMask:longint;
+    dwFileFlags:longint;
+    dwFileOS:longint;
+    dwFileType:longint;
+    dwFileSubtype:longint;
+    dwFileDateMS:longint;
+    dwFileDateLS:longint;
+  end;
 var
   p:pointer;
   pi:^verinfo;
   FName:PChar;
-  {i,}len:longint;
+  len:longint;
   i1 : cardinal;
 begin
   FName:=StrAlloc(Length(Application.EXEName)+1);
+
   StrPCopy(FName,Application.EXEName);
   len := GetFileVersionInfoSize(FName, i1);
   GetMem(p,len);
   GetFileVersionInfo(FName,0,len,p);
   VerQueryValue(p,'\',pointer(pi),i1);
+
   Version_Lbl.Caption:='Версия '+IntToStr(HiWord(pi^.dwFileVersionMS))+'.'+
                                   IntToStr(LoWord(pi^.dwFileVersionMS));
+
   Build_Lbl.Caption:='Build '+IntToStr(HiWord(pi^.dwFileVersionLS))+'.'+
                               IntToStr(LoWord(pi^.dwFileVersionLS));
+
   StrDispose(FName);
   FreeMem(p);
 end;

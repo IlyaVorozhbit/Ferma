@@ -42,8 +42,7 @@ plast:tplast;
 {$R *.DFM}
 
 procedure TAddZak_Form.OKClick(Sender: TObject);
-label
-3;
+label 3;
 var
   r,m,s:TPoint;
   i,jx,jy:integer;
@@ -75,12 +74,12 @@ begin
    CurrentNode:=Plast_m.TPlast_Form(main_Form.ActiveMDIChild).CurrentNode;
 
   // Закрепления
-       if plast.kx1>=plast.ky1 then
+      if plast.kx1>=plast.ky1 then
          begin
           jx:=(currentnode-1) div plast.ky1+1;
           jy:= currentnode-plast.ky1*(jx-1);
          end
-        else
+      else
          begin
           jy:=(currentnode-1) div plast.kx1+1;
           jx:=currentnode-plast.kx1*(jy-1);

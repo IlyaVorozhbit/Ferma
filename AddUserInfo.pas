@@ -97,14 +97,19 @@ begin
    Button1.Enabled:=False;
    Button2.Enabled:=False;
    Button3.Enabled:=False;
+
 // Открытие приложения Word и создание нового документа:
    WordApplication1.Connect;
    WordApplication1.Documents.Add(EmptyParam,EmptyParam,EmptyParam,EmptyParam);
    WordApplication1.Visible:=False;
    WordApplication1.Options.CheckSpellingAsYouType:=False;
    WordApplication1.Options.CheckGrammarAsYouType:=False;
-    if RadioGroup1.ItemIndex=0 then WordApplication1.Visible:=True;
+
+  if RadioGroup1.ItemIndex=0 then
+    WordApplication1.Visible:=True;
+
    ProgressBar1.StepIt;
+
 // Создание титульного листа:
    with WordApplication1.Selection do
     begin

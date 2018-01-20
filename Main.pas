@@ -19,156 +19,157 @@ type
       MKoffPuas:extended;
       MPlotn:extended;
    end;
+
    TMain_Form = class(TForm)
-            StatusBar1: TStatusBar;
-            OpenDialog: TOpenDialog;
-            MainToolBar_IL: TImageList;
-            FermToolBar_IL: TImageList;
-            New_PMnu: TPopupMenu;
-            New_Btn_PU_Ferma: TMenuItem;
-            New_Btn_PU_Plast: TMenuItem;
-            PlastToolBar_IL: TImageList;
-            Ferma_Graph_Enter_IL: TImageList;
-            Main_Panel: TPanel;
-            Main_ToolBar: TToolBar;
-            New_Ferma_TBtn: TToolButton;
-            Open_TBtn: TToolButton;
-            Save_TBtn: TToolButton;
-            TOKToolBar_IL: TImageList;
-            Plast_Graph_Enter_IL: TImageList;
-            TOK_Graph_Enter_IL: TImageList;
-            TOK_PM: TPopupMenu;
-            TOK_NO_PMI: TMenuItem;
-            TOK_OK_PMI: TMenuItem;
-            TOK_OpenDialog: TOpenDialog;
-            SimpleSolve_List: TPopupMenu;
-            Opt_solve_list: TPopupMenu;
-            Plast_SimpReztext: TMenuItem;
-            N8: TMenuItem;
-            SimpleSolve_eq: TMenuItem;
-            SimpleSolve_X: TMenuItem;
-            SimpleSolve_Y: TMenuItem;
-            SimpleSolve_Kas: TMenuItem;
-            Plast_OptRezText: TMenuItem;
-            N7: TMenuItem;
-            Plast_TolRezGraph: TMenuItem;
-            New_Btn_PU_TOK: TMenuItem;
-            Ferma_Graph_Enter_Panel: TPanel;
-            Plast_Graph_Enter_Panel: TPanel;
-            TOK_Graph_Enter_Panel: TPanel;
-            Ferma_Graph_Enter_ToolBar: TToolBar;
-            None_ToolButton: TToolButton;
-            ToolButton5: TToolButton;
-            DrawPivot_ToolButton: TToolButton;
-            DeletePivot_ToolButton: TToolButton;
-            DeletePivot12_ToolButton: TToolButton;
-            ToolButton4: TToolButton;
-            Node_ToolButton: TToolButton;
-            NodeDelete_ToolButton: TToolButton;
-            ToolButton8: TToolButton;
-            Coord_ToolButton: TToolButton;
-            PivotTol_ToolButton: TToolButton;
-            ToolButton10: TToolButton;
-            ToolButton12: TToolButton;
-            Size_ToolButton: TToolButton;
-            Plast_Graph_Enter_ToolBar: TToolBar;
-            ToolButton1: TToolButton;
-            ToolButton2: TToolButton;
-            Cut_Plast_Toolbutton: TToolButton;
-            Del_Cut_Plast_Toolbutton: TToolButton;
-            ToolButton28: TToolButton;
-            Plast_Zakr_ToolButton: TToolButton;
-            ToolButton30: TToolButton;
-            Inform_Toolbutton: TToolButton;
-            ToolButton32: TToolButton;
-            plast_Size_ToolButton: TToolButton;
-            TOK_Graph_Enter_ToolBar: TToolBar;
-            ToolButton3: TToolButton;
-            ToolButton6: TToolButton;
-            tok_Zakr_ToolButton: TToolButton;
-            ToolButton27: TToolButton;
-            Tok_Inform_Toolbutton: TToolButton;
-            ToolButton31: TToolButton;
-            Tok_Size_ToolButton: TToolButton;
-            Ferma_Panel: TPanel;
-            Plast_Panel: TPanel;
-            TOK_Panel: TPanel;
-            Ferm_ToolBar: TToolBar;
-            ToolButton9: TToolButton;
-            FermaKonButton: TToolButton;
-            FermaGraphButton: TToolButton;
-            FermaNumberButton: TToolButton;
-            ToolButton15: TToolButton;
-            ToolButton16: TToolButton;
-            ToolButton17: TToolButton;
-            ToolButton18: TToolButton;
-            ToolButton19: TToolButton;
-            SimpleResult_TB: TToolButton;
-            ToolButton21: TToolButton;
-            ToolButton14: TToolButton;
-            ToolButton7: TToolButton;
-            Plast_ToolBar: TToolBar;
-            ToolButton13: TToolButton;
-            PlastKonButton: TToolButton;
-            PlastGraphButton: TToolButton;
-            PlastNumberButton: TToolButton;
-            ToolButton20: TToolButton;
-            Plast_SN_Cbx: TComboBox;
-            ToolButton23: TToolButton;
-            SimpleSolve: TToolButton;
-            ToolButton25: TToolButton;
-            ToolButton26: TToolButton;
-            SimpleRez_text: TToolButton;
-            OptRez_text: TToolButton;
-            ToolButton29: TToolButton;
-            SimpleRez_graf: TToolButton;
-            OptRez_graf: TToolButton;
-            TOK_ToolBar: TToolBar;
-            ToolButton11: TToolButton;
-            TokKonButton: TToolButton;
-            TokGraphButton: TToolButton;
-            TokNumberButton: TToolButton;
-            ToolButton22: TToolButton;
-            tok_sn_cbx: TComboBox;
-            ToolButton24: TToolButton;
-            toksolve_btn: TToolButton;
-            ToolButton34: TToolButton;
-            tokrez_btn: TToolButton;
-            F_new_Ferma_tbtn: TToolButton;
-            F_Save_TBtn: TToolButton;
-            ToolButton36: TToolButton;
-            P_Save_TBtn: TToolButton;
-            p_new_Ferma_tbtn: TToolButton;
-            ToolButton39: TToolButton;
-            ToolButton40: TToolButton;
-            t_new_tok_tbtn: TToolButton;
-            T_Save_TBtn: TToolButton;
-            F_new_pmnu: TPopupMenu;
-            f_New_Btn_PU_Ferma: TMenuItem;
-            f_New_Btn_PU_TOK: TMenuItem;
-            f_New_Btn_PU_Plast: TMenuItem;
-            p_new_pmnu: TPopupMenu;
-            p_New_Btn_PU_Ferma: TMenuItem;
-            p_New_Btn_PU_TOK: TMenuItem;
-            p_New_Btn_PU_Plast: TMenuItem;
-            t_new_pmnu: TPopupMenu;
-            t_New_Btn_PU_Ferma: TMenuItem;
-            t_New_Btn_PU_TOK: TMenuItem;
-            t_New_Btn_PU_Plast: TMenuItem;
-            Nagr_ToolButton: TToolButton;
-            Zak_ToolButton: TToolButton;
-            Plast_Nagr_ToolButton: TToolButton;
-            tok_Zad_ToolButton: TToolButton;
-            tok_Nagr_ToolButton: TToolButton;
-            New_Plast_TBtn: TToolButton;
-            New_TOK_TBtn: TToolButton;
-            F_new_Plast_tbtn: TToolButton;
-            F_new_TOK_tbtn: TToolButton;
-            p_new_plast_tbtn: TToolButton;
-            p_new_tok_tbtn: TToolButton;
-            t_new_ferma_tbtn: TToolButton;
-            t_new_plast_tbtn: TToolButton;
-            Timer1: TTimer;
+    StatusBar1: TStatusBar;
+    OpenDialog: TOpenDialog;
+    MainToolBar_IL: TImageList;
+    FermToolBar_IL: TImageList;
+    New_PMnu: TPopupMenu;
+    New_Btn_PU_Ferma: TMenuItem;
+    New_Btn_PU_Plast: TMenuItem;
+    PlastToolBar_IL: TImageList;
+    Ferma_Graph_Enter_IL: TImageList;
+    Main_Panel: TPanel;
+    Main_ToolBar: TToolBar;
+    New_Ferma_TBtn: TToolButton;
+    Open_TBtn: TToolButton;
+    Save_TBtn: TToolButton;
+    TOKToolBar_IL: TImageList;
+    Plast_Graph_Enter_IL: TImageList;
+    TOK_Graph_Enter_IL: TImageList;
+    TOK_PM: TPopupMenu;
+    TOK_NO_PMI: TMenuItem;
+    TOK_OK_PMI: TMenuItem;
+    TOK_OpenDialog: TOpenDialog;
+    SimpleSolve_List: TPopupMenu;
+    Opt_solve_list: TPopupMenu;
+    Plast_SimpReztext: TMenuItem;
+    N8: TMenuItem;
+    SimpleSolve_eq: TMenuItem;
+    SimpleSolve_X: TMenuItem;
+    SimpleSolve_Y: TMenuItem;
+    SimpleSolve_Kas: TMenuItem;
+    Plast_OptRezText: TMenuItem;
+    N7: TMenuItem;
+    Plast_TolRezGraph: TMenuItem;
+    New_Btn_PU_TOK: TMenuItem;
+    Ferma_Graph_Enter_Panel: TPanel;
+    Plast_Graph_Enter_Panel: TPanel;
+    TOK_Graph_Enter_Panel: TPanel;
+    Ferma_Graph_Enter_ToolBar: TToolBar;
+    None_ToolButton: TToolButton;
+    ToolButton5: TToolButton;
+    DrawPivot_ToolButton: TToolButton;
+    DeletePivot_ToolButton: TToolButton;
+    DeletePivot12_ToolButton: TToolButton;
+    ToolButton4: TToolButton;
+    Node_ToolButton: TToolButton;
+    NodeDelete_ToolButton: TToolButton;
+    ToolButton8: TToolButton;
+    Coord_ToolButton: TToolButton;
+    PivotTol_ToolButton: TToolButton;
+    ToolButton10: TToolButton;
+    ToolButton12: TToolButton;
+    Size_ToolButton: TToolButton;
+    Plast_Graph_Enter_ToolBar: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    Cut_Plast_Toolbutton: TToolButton;
+    Del_Cut_Plast_Toolbutton: TToolButton;
+    ToolButton28: TToolButton;
+    Plast_Zakr_ToolButton: TToolButton;
+    ToolButton30: TToolButton;
+    Inform_Toolbutton: TToolButton;
+    ToolButton32: TToolButton;
+    plast_Size_ToolButton: TToolButton;
+    TOK_Graph_Enter_ToolBar: TToolBar;
+    ToolButton3: TToolButton;
+    ToolButton6: TToolButton;
+    tok_Zakr_ToolButton: TToolButton;
+    ToolButton27: TToolButton;
+    Tok_Inform_Toolbutton: TToolButton;
+    ToolButton31: TToolButton;
+    Tok_Size_ToolButton: TToolButton;
+    Ferma_Panel: TPanel;
+    Plast_Panel: TPanel;
+    TOK_Panel: TPanel;
+    Ferm_ToolBar: TToolBar;
+    ToolButton9: TToolButton;
+    FermaKonButton: TToolButton;
+    FermaGraphButton: TToolButton;
+    FermaNumberButton: TToolButton;
+    ToolButton15: TToolButton;
+    ToolButton16: TToolButton;
+    ToolButton17: TToolButton;
+    ToolButton18: TToolButton;
+    ToolButton19: TToolButton;
+    SimpleResult_TB: TToolButton;
+    ToolButton21: TToolButton;
+    ToolButton14: TToolButton;
+    ToolButton7: TToolButton;
+    Plast_ToolBar: TToolBar;
+    ToolButton13: TToolButton;
+    PlastKonButton: TToolButton;
+    PlastGraphButton: TToolButton;
+    PlastNumberButton: TToolButton;
+    ToolButton20: TToolButton;
+    Plast_SN_Cbx: TComboBox;
+    ToolButton23: TToolButton;
+    SimpleSolve: TToolButton;
+    ToolButton25: TToolButton;
+    ToolButton26: TToolButton;
+    SimpleRez_text: TToolButton;
+    OptRez_text: TToolButton;
+    ToolButton29: TToolButton;
+    SimpleRez_graf: TToolButton;
+    OptRez_graf: TToolButton;
+    TOK_ToolBar: TToolBar;
+    ToolButton11: TToolButton;
+    TokKonButton: TToolButton;
+    TokGraphButton: TToolButton;
+    TokNumberButton: TToolButton;
+    ToolButton22: TToolButton;
+    tok_sn_cbx: TComboBox;
+    ToolButton24: TToolButton;
+    toksolve_btn: TToolButton;
+    ToolButton34: TToolButton;
+    tokrez_btn: TToolButton;
+    F_new_Ferma_tbtn: TToolButton;
+    F_Save_TBtn: TToolButton;
+    ToolButton36: TToolButton;
+    P_Save_TBtn: TToolButton;
+    p_new_Ferma_tbtn: TToolButton;
+    ToolButton39: TToolButton;
+    ToolButton40: TToolButton;
+    t_new_tok_tbtn: TToolButton;
+    T_Save_TBtn: TToolButton;
+    F_new_pmnu: TPopupMenu;
+    f_New_Btn_PU_Ferma: TMenuItem;
+    f_New_Btn_PU_TOK: TMenuItem;
+    f_New_Btn_PU_Plast: TMenuItem;
+    p_new_pmnu: TPopupMenu;
+    p_New_Btn_PU_Ferma: TMenuItem;
+    p_New_Btn_PU_TOK: TMenuItem;
+    p_New_Btn_PU_Plast: TMenuItem;
+    t_new_pmnu: TPopupMenu;
+    t_New_Btn_PU_Ferma: TMenuItem;
+    t_New_Btn_PU_TOK: TMenuItem;
+    t_New_Btn_PU_Plast: TMenuItem;
+    Nagr_ToolButton: TToolButton;
+    Zak_ToolButton: TToolButton;
+    Plast_Nagr_ToolButton: TToolButton;
+    tok_Zad_ToolButton: TToolButton;
+    tok_Nagr_ToolButton: TToolButton;
+    New_Plast_TBtn: TToolButton;
+    New_TOK_TBtn: TToolButton;
+    F_new_Plast_tbtn: TToolButton;
+    F_new_TOK_tbtn: TToolButton;
+    p_new_plast_tbtn: TToolButton;
+    p_new_tok_tbtn: TToolButton;
+    t_new_ferma_tbtn: TToolButton;
+    t_new_plast_tbtn: TToolButton;
+    Timer1: TTimer;
     PopupMenu1: TPopupMenu;
     N3: TMenuItem;
     N4: TMenuItem;
@@ -224,81 +225,82 @@ type
     ToolButton45: TToolButton;
     N18: TMenuItem;
     N21: TMenuItem;
-            procedure About1Click(Sender: TObject);
-            procedure Exit1Click(Sender: TObject);
-            procedure Open1Click(Sender: TObject);
-            procedure NewFerma_MnuClick(Sender: TObject);
-            procedure Sn_CBxChange(Sender: TObject);
-            procedure Open_TBtnClick(Sender: TObject);
-            procedure Save_TBtnClick(Sender: TObject);
-            procedure NewPlast_MnuClick(Sender: TObject);
-            procedure FormCreate(Sender: TObject);
-            procedure FermaGraphButtonClick(Sender: TObject);
-            procedure DrawPivot_ToolButtonClick(Sender: TObject);
-            procedure None_ToolButtonClick(Sender: TObject);
-            procedure Coord_ToolButtonClick(Sender: TObject);
-            procedure ToolButton10Click(Sender: TObject);
-            procedure FermaKonButtonClick(Sender: TObject);
-            procedure Node_ToolButtonClick(Sender: TObject);
-            procedure PlastGraphButtonClick(Sender: TObject);
-            procedure FermaNumberButtonClick(Sender: TObject);
-            procedure FormClose(Sender: TObject; var Action: TCloseAction);
-            procedure FormShow(Sender: TObject);
-            procedure NodeDelete_ToolButtonClick(Sender: TObject);
-            procedure Size_ToolButtonClick(Sender: TObject);
-            procedure TOK_NO_PMIClick(Sender: TObject);
-            procedure TOK_OK_PMIClick(Sender: TObject);
-            procedure DeletePivot_ToolButtonClick(Sender: TObject);
-            procedure PivotTol_ToolButtonClick(Sender: TObject);
-            procedure DeletePivot12_ToolButtonClick(Sender: TObject);
-            procedure N5Click(Sender: TObject);
-            procedure ToolButton17Click(Sender: TObject);
-            procedure ToolButton18Click(Sender: TObject);
-            procedure SimpleResult_TBClick(Sender: TObject);
-            procedure ToolButton21Click(Sender: TObject);
-            procedure ToolButton7Click(Sender: TObject);
-            procedure FormResize(Sender: TObject);
-            procedure ContentsClick(Sender: TObject);
-            procedure PlastKonButtonClick(Sender: TObject);
-            procedure PlastNumberButtonClick(Sender: TObject);
-            procedure Plast_SN_CbxChange(Sender: TObject);
-            procedure tok_sn_cbxChange(Sender: TObject);
-            procedure Cut_Plast_ToolbuttonClick(Sender: TObject);
-            procedure Del_Cut_Plast_ToolbuttonClick(Sender: TObject);
-            procedure Plast_Zakr_ToolButtonClick(Sender: TObject);
-            procedure Inform_ToolbuttonClick(Sender: TObject);
-            procedure plast_Size_ToolButtonClick(Sender: TObject);
-            procedure NewTOK_MnuClick(Sender: TObject);
-            procedure TokGraphButtonClick(Sender: TObject);
-            procedure SimpleSolveClick(Sender: TObject);
-            procedure ToolButton25Click(Sender: TObject);
-            procedure Plast_SimpReztextClick(Sender: TObject);
-            //procedure SimpleSolve_eqClick(Sender: TObject);
-            //procedure SimpleSolve_XClick(Sender: TObject);
-            //procedure SimpleSolve_YClick(Sender: TObject);
-            //procedure SimpleSolve_KasClick(Sender: TObject);
-            procedure Plast_OptRezTextClick(Sender: TObject);
-            procedure Plast_TolRezGraphClick(Sender: TObject);
-            procedure TokKonButtonClick(Sender: TObject);
-            procedure TokNumberButtonClick(Sender: TObject);
-            procedure SimpleRez_textClick(Sender: TObject);
-            procedure SimpleRez_grafClick(Sender: TObject);
-            procedure OptRez_textClick(Sender: TObject);
-            procedure OptRez_grafClick(Sender: TObject);
-            procedure Tok_Size_ToolButtonClick(Sender: TObject);
-            procedure tok_Zakr_ToolButtonClick(Sender: TObject);
-            procedure ToolButton3Click(Sender: TObject);
-            procedure ToolButton1Click(Sender: TObject);
-            procedure toksolve_btnClick(Sender: TObject);
-            procedure tokrez_btnClick(Sender: TObject);
-            procedure Tok_Inform_ToolbuttonClick(Sender: TObject);
-            procedure Nagr_ToolButtonClick(Sender: TObject);
-            procedure Zak_ToolButtonClick(Sender: TObject);
-            procedure Plast_Nagr_ToolButtonClick(Sender: TObject);
-            procedure tok_Nagr_ToolButtonClick(Sender: TObject);
-            procedure tok_Zad_ToolButtonClick(Sender: TObject);
-            procedure FormActivate(Sender: TObject);
-            procedure Timer1Timer(Sender: TObject);
+
+    procedure About1Click(Sender: TObject);
+    procedure Exit1Click(Sender: TObject);
+    procedure Open1Click(Sender: TObject);
+    procedure NewFerma_MnuClick(Sender: TObject);
+    procedure Sn_CBxChange(Sender: TObject);
+    procedure Open_TBtnClick(Sender: TObject);
+    procedure Save_TBtnClick(Sender: TObject);
+    procedure NewPlast_MnuClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FermaGraphButtonClick(Sender: TObject);
+    procedure DrawPivot_ToolButtonClick(Sender: TObject);
+    procedure None_ToolButtonClick(Sender: TObject);
+    procedure Coord_ToolButtonClick(Sender: TObject);
+    procedure ToolButton10Click(Sender: TObject);
+    procedure FermaKonButtonClick(Sender: TObject);
+    procedure Node_ToolButtonClick(Sender: TObject);
+    procedure PlastGraphButtonClick(Sender: TObject);
+    procedure FermaNumberButtonClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure NodeDelete_ToolButtonClick(Sender: TObject);
+    procedure Size_ToolButtonClick(Sender: TObject);
+    procedure TOK_NO_PMIClick(Sender: TObject);
+    procedure TOK_OK_PMIClick(Sender: TObject);
+    procedure DeletePivot_ToolButtonClick(Sender: TObject);
+    procedure PivotTol_ToolButtonClick(Sender: TObject);
+    procedure DeletePivot12_ToolButtonClick(Sender: TObject);
+    procedure N5Click(Sender: TObject);
+    procedure ToolButton17Click(Sender: TObject);
+    procedure ToolButton18Click(Sender: TObject);
+    procedure SimpleResult_TBClick(Sender: TObject);
+    procedure ToolButton21Click(Sender: TObject);
+    procedure ToolButton7Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure ContentsClick(Sender: TObject);
+    procedure PlastKonButtonClick(Sender: TObject);
+    procedure PlastNumberButtonClick(Sender: TObject);
+    procedure Plast_SN_CbxChange(Sender: TObject);
+    procedure tok_sn_cbxChange(Sender: TObject);
+    procedure Cut_Plast_ToolbuttonClick(Sender: TObject);
+    procedure Del_Cut_Plast_ToolbuttonClick(Sender: TObject);
+    procedure Plast_Zakr_ToolButtonClick(Sender: TObject);
+    procedure Inform_ToolbuttonClick(Sender: TObject);
+    procedure plast_Size_ToolButtonClick(Sender: TObject);
+    procedure NewTOK_MnuClick(Sender: TObject);
+    procedure TokGraphButtonClick(Sender: TObject);
+    procedure SimpleSolveClick(Sender: TObject);
+    procedure ToolButton25Click(Sender: TObject);
+    procedure Plast_SimpReztextClick(Sender: TObject);
+    //procedure SimpleSolve_eqClick(Sender: TObject);
+    //procedure SimpleSolve_XClick(Sender: TObject);
+    //procedure SimpleSolve_YClick(Sender: TObject);
+    //procedure SimpleSolve_KasClick(Sender: TObject);
+    procedure Plast_OptRezTextClick(Sender: TObject);
+    procedure Plast_TolRezGraphClick(Sender: TObject);
+    procedure TokKonButtonClick(Sender: TObject);
+    procedure TokNumberButtonClick(Sender: TObject);
+    procedure SimpleRez_textClick(Sender: TObject);
+    procedure SimpleRez_grafClick(Sender: TObject);
+    procedure OptRez_textClick(Sender: TObject);
+    procedure OptRez_grafClick(Sender: TObject);
+    procedure Tok_Size_ToolButtonClick(Sender: TObject);
+    procedure tok_Zakr_ToolButtonClick(Sender: TObject);
+    procedure ToolButton3Click(Sender: TObject);
+    procedure ToolButton1Click(Sender: TObject);
+    procedure toksolve_btnClick(Sender: TObject);
+    procedure tokrez_btnClick(Sender: TObject);
+    procedure Tok_Inform_ToolbuttonClick(Sender: TObject);
+    procedure Nagr_ToolButtonClick(Sender: TObject);
+    procedure Zak_ToolButtonClick(Sender: TObject);
+    procedure Plast_Nagr_ToolButtonClick(Sender: TObject);
+    procedure tok_Nagr_ToolButtonClick(Sender: TObject);
+    procedure tok_Zad_ToolButtonClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
     procedure newClick(Sender: TObject);
     procedure ToolButton33Click(Sender: TObject);
     procedure N3Click(Sender: TObject);
@@ -333,6 +335,7 @@ type
     procedure TokNextBtnClick(Sender: TObject);
     procedure N20Click(Sender: TObject);
     procedure Sort(Sender: TObject);
+
     // Едокимова Е.А. начало
     protected
       procedure WMDropFiles(var Message:TMessage); message WM_DROPFILES;
@@ -340,55 +343,42 @@ type
       FOnDropFiles:TNotifyEvent;
       FDrop:THandle;
       procedure DoDropFiles(Sender:TObject);
-      { Private declarations }
     public
-      { Public declarations }
      property Drop:THandle read FDrop write FDrop;
      property OnDropFiles:TNotifyEvent read FOnDropFiles write FOnDropFiles;
      // Едокимова Е.А. конец
 
+    public
+      User_Height: integer;  //  Высота экрана пользователя в пикселях
+      User_Width:  integer;  //  Ширина экрана пользователя в пикселях
+      Height_Ratio: real;    // Коэффициент высоты экрана. Определяется
+                             // как отношение высоты экрана разработчика
+                             // к высоте экрана пользователя
+      Width_Ratio: real;     // Коэффициент ширины экрана. Определяется
+                             // как отношение ширины экрана разработчика
+                             // к ширине экрана пользователя
+      TileWindows: boolean;
+      CascadeWindows:boolean; // Упорядочиваем ли мы окна ?
+      Exit_Ok:boolean; // Выходим ли мы из программы ? (окончательно)
+      Main_Window_Exit:boolean; //Из чего мы запустили процедуру Close
+      output_order:integer; // переменная, определяющая порядок расстановки окон
+      sorted:boolean;
 
-         private
-           {procedure WM_HotKeyHandler (var Message: TMessage);
-           message WM_HOTKEY;} // commented by Берсенёва М.
+      {Список Материалов для фермы}
+      Ferma_MMaterials:array[1..100] of TMaterial; // Массив материалов для фермы
+      Ferma_num_mat:integer;  //Число добавленных пользователем материалов
 
+      {Список Материалов для пластины}
+      Plast_MMaterials:array[1..100] of TMaterial; // Массив материалов для пластины
+      Plast_num_mat:integer;  //Число добавленных пользователем материалов
 
-            { Private declarations }
-         public
-            { Public declarations }
-            User_Height: integer;  //  Высота экрана пользователя в пикселях
-            User_Width:  integer;  //  Ширина экрана пользователя в пикселях
-            Height_Ratio: real;    // Коэффициент высоты экрана. Определяется
-                                   // как отношение высоты экрана разработчика
-                                   // к высоте экрана пользователя
-            Width_Ratio: real;     // Коэффициент ширины экрана. Определяется
-                                   // как отношение ширины экрана разработчика
-                                   // к ширине экрана пользователя
-            TileWindows: boolean;
-            CascadeWindows:boolean; // Упорядочиваем ли мы окна ?
-            Exit_Ok:boolean; // Выходим ли мы из программы ? (окончательно)
-            Main_Window_Exit:boolean; //Из чего мы запустили процедуру Close
-            output_order:integer; // переменная, определяющая порядок расстановки окон
-            sorted:boolean;
-            {Список Материалов для фермы}
-            Ferma_MMaterials:array[1..100] of TMaterial; // Массив материалов для фермы
-            Ferma_num_mat:integer;  //Число добавленных пользователем материалов
+      {Список Материалов для TOK}
+      TOK_MMaterials:array[1..100] of TMaterial; // Массив материалов для пластины
+      TOK_num_mat:integer;  //Число добавленных пользователем материалов
 
-            {Список Материалов для пластины}
-            Plast_MMaterials:array[1..100] of TMaterial; // Массив материалов для пластины
-            Plast_num_mat:integer;  //Число добавленных пользователем материалов
-
-            {Список Материалов для TOK}
-            TOK_MMaterials:array[1..100] of TMaterial; // Массив материалов для пластины
-            TOK_num_mat:integer;  //Число добавленных пользователем материалов
-
-            Num_Nonamed_Ferma:integer; //Номер вновь создаваемого проекта 'Ферма'
-            Num_Nonamed_TOK:integer; //Номер вновь создаваемого проекта 'TOK'
-            Num_Nonamed_Plast:integer; //Номер вновь создаваемого проекта 'Пластина'
-
-
-         
-
+      Num_Nonamed_Ferma:integer; //Номер вновь создаваемого проекта 'Ферма'
+      Num_Nonamed_TOK:integer; //Номер вновь создаваемого проекта 'TOK'
+      Num_Nonamed_Plast:integer; //Номер вновь создаваемого проекта 'Пластина'
    end;
 
 var
@@ -410,8 +400,6 @@ var
    FSize: array [0..1] of Integer;
    ASize: Boolean;
 
-
-
    const
    crDeleteElement = 1;    // Курсорчик удаления
    Dev_Height  : Integer  = 1024;   // Высота экрана разработчика в пикселях
@@ -422,28 +410,10 @@ implementation
 uses Splash,About, Ferma_M, Plast_M, TOK_M, Ferm_Dat,
    Ferma_FD, FermaRegionSize, SimplRezFerm, DeFormFerma, Plast_FD, Visio,
    PlastRegionSize, TOK_FD, tokRegionSize, About2, TokZad, SelectMetod,
-   AddUserInfo, ModuleExecute, ShellAPI;
+   AddUserInfo, ModuleExecute, ShellAPI, Utils;
 
 {$R *.DFM}
 {$R FermaPlus.res}
-
- // Свой файл ресурсов
-{procedure TMain_Form.WM_HotKeyHandler (var Message: TMessage);
-  var
-    idHotKey: integer; //идентификатор, но об этом - позже
-    fuModifiers: word; //модификатор MOD_XX
-    uVirtKey: word; //код виртуальной клавиши VK_XX
-begin
-  // параметры сообщения получаем так:
-  idHotkey:= Message.wParam;
-  fuModifiers:= LOWORD(Message.lParam);
-  uVirtKey:= HIWORD(Message.lParam);
-
-  //теперь - небольшая проверочка:
-  if (fuModifiers = MOD_CONTROL) AND (uVirtKey = $4C) then
-  open1.Click;
-  inherited;
-end; } // commented by Берсенёва М.
 
   // Начало Евдокимова
    procedure TMain_Form.WMDropFiles(var Message:TMessage);
@@ -458,13 +428,7 @@ end; } // commented by Берсенёва М.
          str: String;
    begin
     filesCount:=DragQueryFile((Sender as TMain_Form).Drop,$FFFFFFFF,nil,cb);
-  //ListBox1.Items.Add(IntToStr(I));
-   {For j:=0 to i-1 do
-    begin
-    FillChar(Str,SizeOf(Str),0);
-    DragQueryFile((Sender as TMain_Form).Drop,j,Str,MAX_PATH);
-    ListBox1.Items.Add(Str);
-    end;}
+
    for j:=0 to filesCount-1 do begin
      DragQueryFile((Sender as TMain_Form).Drop,j,filePath,MAX_PATH);
      str:=ExtractFileExt(LowerCase(filePath));
@@ -495,8 +459,6 @@ end; } // commented by Берсенёва М.
     end;
   end;
   // Конец Евдокимова
-
-
 
 procedure TMain_Form.About1Click(Sender: TObject);
 begin
@@ -592,21 +554,25 @@ end;
 
 procedure TMain_Form.Save_TBtnClick(Sender: TObject);
 begin
+
   if ActiveMDIChild is TFerma_Form then
    begin
     (ActiveMDIChild as TFerma_Form).FileSave_MnuClick(Sender);
      F_Save_TBtn.Enabled:=False;
    end;
+
   if ActiveMDIChild is TPlast_Form then
    begin
     (ActiveMDIChild as TPlast_Form).FileSave_MnuClick(Sender);
     P_Save_TBtn.Enabled:=False;
    end;
+
   if ActiveMDIChild is Ttok_Form then
    begin
     (ActiveMDIChild as Ttok_Form).FileSave_MnuClick(Sender);
      T_Save_TBtn.Enabled:=False;
-   end;;
+   end;
+
 end;
 
 procedure TMain_Form.NewPlast_MnuClick(Sender: TObject);
@@ -615,49 +581,17 @@ var
 begin
    p:=TPlast.Create;
    TPlast_Form.NewFile(Self,p);
-
 end;
 
-
 procedure TMain_Form.FormCreate(Sender: TObject);
-//var Reg, Reg1, Reg2, Reg3, Reg4, Reg5, Reg6, Reg7 : TRegistry;
-   //   NewForm:TFerma_Form;
 
 begin
+   Utils.mainFormInit(Self);
 
-   Splash_Form:=TSplash_Form.Create(Self);
-   Splash_Form.Show;
-   while Splash_Form.Visible do Application.ProcessMessages;
-   with Screen do
-   begin
-     Height_Ratio      := Dev_Height/Height;
-     Width_Ratio       := Dev_Width/Width;
-     Main_Form.Width   := trunc(640*Width_Ratio);
-     Main_Form.Height  := trunc(480*Height_Ratio);
-   end;
-   Application.HelpFile:=ExtractFilePath(Application.ExeName)+Application.HelpFile;
-
-   Main_Panel.Visible  :=TRUE;
-
-   Num_Nonamed_Ferma   :=1;
-   Num_Nonamed_Plast   :=1;
-   Num_Nonamed_TOK     :=1;
-
-   output_order := 1; //прямой порядок вывода
-   sorted:=false;
    //Евдокимова Начало
     Main_Form.OnDropFiles:=Self.DoDropFiles;
     DragAcceptFiles(Main_Form.Handle,True);
   //Евдокимова Конец
-
- {//Инициализация горящих главиш
- keyid:=GlobalAddAtom('My Hotkey'); //создаем атом
- RegisterHotKey(handle,
- // сообщение о HotKey будет получать форма
- keyid, // регистрируем атом как id
- MOD_CONTROL,// модификатор у нас - клавиша Alt
- $4C // вирт. клавиша - F10
-); } //commented by Берсенёва М.
 end;
 
 
@@ -684,7 +618,7 @@ begin
    end
    else begin
       Ferma_Graph_Enter_Panel.Visible          :=TRUE;
-      Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).ViewGraph_Mnu.Checked := TRUE;  
+      Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).ViewGraph_Mnu.Checked := TRUE;
    end;
 
 end;
@@ -838,16 +772,11 @@ procedure TMain_Form.FormClose(Sender: TObject; var Action: TCloseAction);
 var
    I:integer;
 
-   Ferma_File_Ok:boolean; //Флажочек для проверки наличия файла с материалами
-   //   для фермы
+   Ferma_File_Ok:boolean; //Флажочек для проверки наличия файла с материалами для фермы
    Ferma_mf:System.Text;  // Файл с материалами для фермы
-
-   Plast_File_Ok:boolean; //Флажочек для проверки наличия файла с материалами
-   //   для пластины
+   Plast_File_Ok:boolean; //Флажочек для проверки наличия файла с материалами для пластины
    Plast_mf:System.Text;  // Файл с материалами для пластины
-
-   TOK_File_Ok:boolean; //Флажочек для проверки наличия файла с материалами
-   //   для TOK
+   TOK_File_Ok:boolean; //Флажочек для проверки наличия файла с материалами для TOK
    TOK_mf:System.Text;  // Файл с материалами для TOK
 begin
 
@@ -878,16 +807,7 @@ begin
 
    //========== Обработка файла с материалами для фермы ==============
    Ferma_File_Ok:=TRUE;
-   {енто мой комментарий!!!
-    try
-     begin
-     AssignFile(Ferma_mf,ExtractFilePath(Application.ExeName)+'fermamaterials.ini');
-     Reset(Ferma_mf);
-     end;
-    except
-       Ferma_File_Ok:=False;
-    end;
-    енто кoнец моего комментария!!!}
+
    AssignFile(Ferma_mf,ExtractFilePath(Application.ExeName)+'fermamaterials.ini');
    if FileExists(ExtractFilePath(Application.ExeName)+'fermamaterials.ini') then reset(Ferma_mf)
    else Ferma_File_Ok:=False;
@@ -916,22 +836,14 @@ begin
 
    //========== Обработка файла с материалами для Пластины ==============
    Plast_File_Ok:=TRUE;
-   {енто я, любимый, комментю!!!
-    try
-     AssignFile(Plast_mf,ExtractFilePath(Application.ExeName)+'plastinamaterials.ini');
-     Reset(Plast_mf);
-    except
-       Plast_File_Ok:=False;
-    end;
-    енто я, любимый, накомментил!!!}
-   {енто я, любимый, хулюганю!!!}
+
    AssignFile(Plast_mf,ExtractFilePath(Application.ExeName)+'plastinamaterials.ini');
    if FileExists(ExtractFilePath(Application.ExeName)+'plastinamaterials.ini') then
    begin
        reset(Plast_mf);
    end
    else Plast_File_Ok:=False;
-   { енто я, любимый, нахулюганил!!!}
+
    if Plast_num_mat=0 then // Количество материалов в файле для пластины
    begin
       if Plast_File_Ok then
@@ -939,8 +851,7 @@ begin
       end;  // Если файл есть, а все дополнительные материалы удалены, то файл стираем
    end
    else begin
-      //   if File_Ok then
-      //    begin
+
       rewrite(Plast_mf);
       writeln(Plast_mf,Plast_num_mat);
       for I:=3 to Plast_num_mat+2 do
@@ -952,52 +863,42 @@ begin
          writeln(Plast_mf,Plast_MMaterials[I].MPlotn);
       end;
       CloseFile(Plast_mf);
-      //   end;
+
    end;
    //===== Конец обработки файла с материалами для Пластины =============
 
-
    //========== Обработка файла с материалами для TOK ==============
    TOK_File_Ok:=TRUE;
-   {енто я, любимый, комментю!!!
-    try
-     AssignFile(TOK_mf,ExtractFilePath(Application.ExeName)+'tokmaterials.ini');
-     Reset(TOK_mf);
-    except
-       TOK_File_Ok:=False;
-    end;
-    енто я, любимый, накомментил!!!}
-   {енто я, любимый, хулюганю!!!}
+
    if FileExists(ExtractFilePath(Application.ExeName)+'tokmaterials.ini') then
-   begin
-      AssignFile(TOK_mf,ExtractFilePath(Application.ExeName)+'tokmaterials.ini');
-      reset(TOK_mf);
-   end
-   else TOK_File_Ok:=False;
-   {енто я, любимый, нахулюганил!!!}
+     begin
+        AssignFile(TOK_mf,ExtractFilePath(Application.ExeName)+'tokmaterials.ini');
+        reset(TOK_mf);
+     end
+   else
+     TOK_File_Ok:=False;
+
    if TOK_num_mat=0 then // Количество материалов в файле для TOK
    begin
       if TOK_File_Ok then
-      begin CloseFile(TOK_mf);Erase(TOK_mf);
+      begin
+        CloseFile(TOK_mf);
+        Erase(TOK_mf);
       end;  // Если файл есть, а все дополнительные материалы удалены, то файл стираем
    end
-   else begin
-      //   if File_Ok then
-      //    begin
-      rewrite(TOK_mf);
-      writeln(TOK_mf,TOK_num_mat);
-      for I:=3 to TOK_num_mat+2 do
-      begin
-         writeln(TOK_mf,TOK_MMaterials[I].MName);
-         writeln(TOK_mf,TOK_MMaterials[I].MModUpr);
-         writeln(TOK_mf,TOK_MMaterials[I].Mplotn);
-      end;
-      CloseFile(TOK_mf);
-      //   end;
-   end;
+   else
+    begin
+        rewrite(TOK_mf);
+        writeln(TOK_mf,TOK_num_mat);
+        for I:=3 to TOK_num_mat+2 do
+        begin
+           writeln(TOK_mf,TOK_MMaterials[I].MName);
+           writeln(TOK_mf,TOK_MMaterials[I].MModUpr);
+           writeln(TOK_mf,TOK_MMaterials[I].Mplotn);
+        end;
+        CloseFile(TOK_mf);
+    end;
    //===== Конец обработки файла с материалами для ТОК =============
-
-
 end;
 
 
@@ -1031,14 +932,6 @@ begin
    Ferma_MMaterials[1].MPlotn      :=7.8*0.001;
    Ferma_MMaterials[2].MPlotn      :=2.8*0.001;
 
-   {енто мой комментарий!!!}
-   {  try  //Пытаемся прочесть файл с добавленными материалами
-     AssignFile(Ferma_mf,ExtractFilePath(Application.ExeName)+'fermamaterials.ini');
-     reset(Ferma_mf);
-    except
-      Ferma_File_Ok:=False;
-    end;}
-   {енто конец моего комментария!!!}
    if FileExists(ExtractFilePath(Application.ExeName)+'fermamaterials.ini') then
    begin
       AssignFile(Ferma_mf,ExtractFilePath(Application.ExeName)+'fermamaterials.ini');
@@ -1073,14 +966,6 @@ begin
    Plast_MMaterials[1].MPlotn      :=7.8*0.001;
    Plast_MMaterials[2].MPlotn      :=2.8*0.001;
 
-   {енто мой комментарий!!!!
-     try  //Пытаемся прочесть файл с добавленными материалами
-      AssignFile(Plast_mf,ExtractFilePath(Application.ExeName)+'plastinamaterials.ini');
-      reset(Plast_mf);
-     except
-       Plast_File_Ok:=False;
-     end;
-   енто  конец моего комментария!!!!!!}
    if FileExists(ExtractFilePath(Application.ExeName)+'plastinamaterials.ini') then
    begin
       AssignFile(Plast_mf,ExtractFilePath(Application.ExeName)+'plastinamaterials.ini');
@@ -1112,22 +997,13 @@ begin
    TOK_MMaterials[2].MModUpr:=7000000;
    TOK_MMaterials[1].MPlotn      :=7.8*0.001;
    TOK_MMaterials[2].MPlotn      :=2.8*0.001;
-   {енто я, любимый, комментю!!!
-     try  //Пытаемся прочесть файл с добавленными материалами
-      AssignFile(TOK_mf,ExtractFilePath(Application.ExeName)+'tokmaterials.ini');
-      reset(TOK_mf);
-     except
-       TOK_File_Ok:=False;
-     end;
-    енто я, любимый, накомментил!!!}
-   {енто я, любимый, хулюганю!!! }
+
    if FileExists(ExtractFilePath(Application.ExeName)+'tokmaterials.ini') then
    begin
       AssignFile(TOK_mf,ExtractFilePath(Application.ExeName)+'tokmaterials.ini');
       reset(TOK_mf);
    end
    else TOK_File_Ok:=False;
-   {енто я, любимый, нахулюганил!!!}
    if TOK_File_Ok then  // Если файл есть, то считываем дополнительные материалы
    begin
       readln(TOK_mf,TOK_num_mat);
@@ -1273,7 +1149,7 @@ procedure TMain_Form.PivotTol_ToolButtonClick(Sender: TObject);
 begin
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).paintbox.Cursor  :=crHandPoint;
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).paintbox.ShowHint:=False;
-   if(Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).PivotIdent<>0) then    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).RePaint; 
+   if(Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).PivotIdent<>0) then    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).RePaint;
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).pivotX1        :=-1;
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).pivotX2        :=-1;
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).pivotY1        :=-1;
@@ -1408,10 +1284,8 @@ var
    end;
    //
    if DeForm_Form.Num_Color=0 then DeForm_Form.Num_Color:=5;
-   //DeForm_Form.ShowModal;
    DeForm_Form.Show;
 end;
-
 
 procedure TMain_Form.FormResize(Sender: TObject);
 begin
@@ -1419,19 +1293,16 @@ begin
    if Height<450 then Height:=450;
 end;
 
-
 procedure TMain_Form.ContentsClick(Sender: TObject);
 begin
    Application.HelpCommand(HELP_FINDER,0);
 end;
-
 
 procedure TMain_Form.PlastKonButtonClick(Sender: TObject);
 begin
    if PlastKonButton.Down = False then Plast_Fd_Form.Visible:=False
    else Plast_Fd_Form.Visible:=TRUE;
 end;
-
 
 procedure TMain_Form.PlastNumberButtonClick(Sender: TObject);
 var
@@ -1444,11 +1315,8 @@ begin
       Main_Form.MDIChildren[I].RePaint;
 end;
 
-
 procedure TMain_Form.Plast_SN_CbxChange(Sender: TObject);
 begin
-   {  If PlastGraphButton.Down = False then Plast_Graph_Enter_CoolBar.Visible:=False
-    else Plast_Graph_Enter_CoolBar.Visible:=True; }
 
    Visio_form.num_force:=Plast_SN_Cbx.ItemIndex+1;
    Plast_Fd_Form.showD(Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Plast);
@@ -1456,12 +1324,9 @@ begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).XOld:=-1;
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).YOld:=-1;
    ActiveMDIChild.RePaint;
-   //if visio_form.Visible then visio_form.Repaint;
-   {if visio_color.Visible then visio_color.Repaint;
-       if visio_color_2.Visible then visio_color_2.Repaint;}
-   if Main_Form.Del_Cut_Plast_Toolbutton.Down then Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent:='';        
-end;
 
+   if Main_Form.Del_Cut_Plast_Toolbutton.Down then Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent:='';
+end;
 
 procedure TMain_Form.tok_sn_cbxChange(Sender: TObject);
 begin
@@ -1469,7 +1334,6 @@ begin
    TOK_M.Ttok_Form(Main_Form.ActiveMDIChild).sn:=Main_Form.tok_sn_cbx.ItemIndex+1;
    ActiveMDIChild.RePaint;
 end;
-
 
 procedure TMain_Form.Cut_Plast_ToolbuttonClick(Sender: TObject);
 begin
@@ -1484,10 +1348,9 @@ begin
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent:='';
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).XOld    :=-1;
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).YOld    :=-1;
-      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;      
+      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;
    end;
 end;
-
 
 procedure TMain_Form.Del_Cut_Plast_ToolbuttonClick(Sender: TObject);
 begin
@@ -1499,7 +1362,7 @@ begin
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent:='';
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).XOld    :=-1;
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).YOld    :=-1;
-      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;        
+      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;
    end;
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutX1_x        :=-1;
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutX2_x        :=-1;
@@ -1509,12 +1372,11 @@ begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutX2_y        :=-1;
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutY1_y        :=-1;
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutY2_y        :=-1;
-   Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent       :=''; 
+   Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent       :='';
    Main_Form.StatusBar1.Panels[0].Text := '';
    Main_Form.StatusBar1.Panels[1].Text := '';
    Main_Form.StatusBar1.Panels[2].Text := '';
 end;
-
 
 procedure TMain_Form.Plast_Zakr_ToolButtonClick(Sender: TObject);
 begin
@@ -1563,10 +1425,9 @@ begin
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent:='';
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).XOld    :=-1;
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).YOld    :=-1;
-      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;     
+      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;
    end;
 end;
-
 
 procedure TMain_Form.plast_Size_ToolButtonClick(Sender: TObject);
 var
@@ -1597,7 +1458,6 @@ begin
    if  max_y_coord=0 then plastRegionSizeForm.MinY_L.Caption:=FormatFloat('0.##',max_y_coord)+' <';
    plastRegionSizeForm.XSize.Text :=FloatToStr(p.xm1[p.kx1]);
    plastRegionSizeForm.YSize.Text :=FloatToStr(p.ym1[p.ky1]);
-   // PlastRegionSizeForm.razm_label.caption:= p.s_lin;
    plastRegionSizeForm.nt_edt.Text:=FloatToStr(p.ton1);
    if (p.kz1=0)and(p.kl1=0) then plastRegionSizeForm.ShowModal
    else begin
@@ -1607,7 +1467,6 @@ begin
       plastRegionSizeForm.ShowModal ;
       plastRegionSizeForm.XSize.enabled:=TRUE;
       plastRegionSizeForm.YSize.enabled:=TRUE;
-      // exit;
    end;
 
 end;
@@ -1617,24 +1476,12 @@ procedure TMain_Form.NewTOK_MnuClick(Sender: TObject);
 var
    t:Ttok;
 begin
-   // Создание новой ТОК
-   {my comment
-    New_TBtn.ImageIndex:=5;
-    New_TBtn.Hint:='Создать проект '+#39+'ТОК'+#39;
-    New_TBtn.OnClick:=NewTOK_MnuClick;
-    New_Btn_PU_TOK.Checked:=True;
-    New_Btn_PU_Ferma.Checked:=False;
-    New_Btn_PU_Plast.Checked:=False;
-   end of my comment}
    t:=Ttok.Create;
    Ttok_Form.NewFile(Self,t);
-
 end;
-
 
 procedure TMain_Form.TokGraphButtonClick(Sender: TObject);
 begin
-
    if TokGraphButton.Down = False then
    begin
       TOK_Graph_Enter_Panel.Visible            :=False;
@@ -1670,31 +1517,6 @@ begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).s_text_mnuClick(Sender);
 end;
 
-
-{procedure TMain_Form.SimpleSolve_eqClick(Sender: TObject);
-begin
-  Plast_M.TPlast_Form(Main_form.ActiveMDIChild).eq_mnuClick(Sender);
-end;   }
-
-
-{procedure TMain_Form.SimpleSolve_XClick(Sender: TObject);
-begin
- Plast_M.TPlast_Form(Main_form.ActiveMDIChild).X_mnuClick(Sender);
-end;  }
-
-
-{procedure TMain_Form.SimpleSolve_YClick(Sender: TObject);
-begin
- Plast_M.TPlast_Form(Main_form.ActiveMDIChild).Y_mnuClick(Sender);
-end;}
-
-
-{procedure TMain_Form.SimpleSolve_KasClick(Sender: TObject);
-begin
- Plast_M.TPlast_Form(Main_form.ActiveMDIChild).Kas_mnuClick(Sender);
-end;}
-
-
 procedure TMain_Form.Plast_OptRezTextClick(Sender: TObject);
 begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).o_text_mnuClick(Sender);
@@ -1721,14 +1543,10 @@ begin
    if TokNumberButton.Down=False then TOK_M.Ttok_Form(Main_Form.ActiveMDIChild).TOK_Num_Element.Checked:=False
    else TOK_M.Ttok_Form(Main_Form.ActiveMDIChild).TOK_Num_Element.Checked:=TRUE;
 
-   for I := MDIChildCount-1 downto 0 do                               
+   for I := MDIChildCount-1 downto 0 do
       Main_Form.MDIChildren[I].RePaint;
 
 end;
-
-
-
-
 
 procedure TMain_Form.SimpleRez_textClick(Sender: TObject);
 begin
@@ -1833,7 +1651,7 @@ begin
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).cutIdent:='';
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).XOld    :=-1;
       Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).YOld    :=-1;
-      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;        
+      Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).Zagr    :=TRUE;
    end;
 end;
 
@@ -1885,7 +1703,6 @@ procedure TMain_Form.newClick(Sender: TObject);
 begin
     if Ferma_SelectMetod=nil then
      Ferma_SelectMetod:=TFerma_SelectMetod.Create(self);
-     //Ferma_SelectMetod.Close;
      Ferma_SelectMetod.Show;
 end;
 
@@ -2163,9 +1980,6 @@ begin
   end;
 end;
 
-
-
-
 procedure TMain_Form.N9Click(Sender: TObject);
 begin
  AddUserInfo_form.ShowModal;
@@ -2208,7 +2022,7 @@ end;
 
 procedure TMain_Form.ModuleExecuteClick(Sender: TObject);
 begin
-ModuleExecute_Form.ShowModal;
+  ModuleExecute_Form.ShowModal;
 end;
 
 procedure TMain_Form.N14Click(Sender: TObject);
@@ -2351,10 +2165,6 @@ begin
    for I := MDIChildCount-1 downto 0 do
    begin
       Main_Form.MDIChildren[I].Close;
-      //ShowMessage(IntToStr(MDIChildCount));
-      //AppActivate('Ферма');
-      //SendKeys('Enter', true);
-      //if not Exit_Ok then break;
    end;
    Main_Form.MainMenu1.Items[1].Enabled     :=false;
    Main_Form.Ferma_Graph_Enter_Panel.Visible:=false;
@@ -2381,23 +2191,7 @@ begin
    Main_Form.F_Save_TBtn.Enabled:=false;
    Main_Form.Caption:='Ферма';
    Main_Form.Main_Panel.Visible:=true;
-  {i:=-1; // Начальное значение порядкового номера удаляемого окна, оно равно (-1), чтобы при входе в цикл получить значение 0
-  k:=Main_form.MDIChildCount; // Считываем в k количество MDI окон
-  //MessageDlg(IntToStr(k),mtError,[mbOk],0);
-  nc:=0; // Количество окон, которые нельзя удалять в цикле
-  repeat
-    i:=i+1; // Текущее значение порядкового номера удаляемого окна
-    Main_form.MDIChildren[i].Close; // Удаляем окно с индексом i
-    //Ferma_form.MDIChildren[i].Deactivate;
-    if Main_form.MDIChildCount<>k then // Проверяем изменилось ли количество MDI окон, т.к. пользователь мог запретить закрытие текущего окна
-      begin
-        i:=-1+nc; // Если изменилось, то начальное значение порядкового номера удаляемого окна плюс количество окон, которые нельзя удалять в цикле
-        k:=Main_form.MDIChildCount; // Считываем в k новое количество MDI окон
-      end
-    else
-      nc:=nc+1; // Если не изменилось - значит пользователь запретил закрыть это окно, блокируем его закрытие в цикле.
-  until i=k-1; // выполнять цикл, до тех пор пока значение порядкового номера удаляемого окна не сравняется с идентификатором последнего MDI окна
-  }
+
 end;
 // Конец // Гришанин Вадим
 
@@ -2409,37 +2203,27 @@ s,ss: string;
 t: TStringList;
 found: integer;
 begin
-t := TStringList.Create;
-for i:=1 to Main_form.MDIChildCount do begin
 
-  t.Add(Main_form.MDIChildren[i-1].Caption);
-//Main_form.MDIChildren[i-1].SetFocus;
-end;
-t.Sort;
-found:=0;
-for j:=0 to t.Count-1 do begin
-  for i:=1 to Main_form.MDIChildCount do begin
-    if (found=0) then begin
-      if (Main_form.MDIChildren[i-1].Caption=t.Strings[j]) then  begin
-               Main_form.MDIChildren[i-1].SetFocus;
-               found:=1;
+  t := TStringList.Create;
+
+  for i:=1 to Main_form.MDIChildCount do
+  begin
+    t.Add(Main_form.MDIChildren[i-1].Caption);
+  end;
+
+  t.Sort;
+  found:=0;
+  for j:=0 to t.Count-1 do begin
+    for i:=1 to Main_form.MDIChildCount do begin
+      if (found=0) then begin
+        if (Main_form.MDIChildren[i-1].Caption=t.Strings[j]) then  begin
+                 Main_form.MDIChildren[i-1].SetFocus;
+                 found:=1;
+          end;
         end;
       end;
-    end;
-    sorted:=true;
-end;
-{Main_form.MDIChildren[0].Caption   :=ss;
-if n5.Checked then n5.Click;
-if n13.Checked then n13.Click;
-if n14.Checked then n14.Click;
-
-if not n5.Checked then begin
-if not n13.Checked then begin
-if not n14.Checked then begin
-n5.Click;
-end;
-end;
-end;}
+      sorted:=true;
+  end;
 
 end;
 

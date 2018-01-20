@@ -60,7 +60,8 @@ uses
   Ferma_M_Anim in 'Ferma_M_Anim.pas' {Form3},
   Buffer in 'Buffer.pas',
   FermOptMassa in 'FermOptMassa.pas' {Ferm_opt_massa},
-  About in 'About.pas' {About_Form};
+  About in 'About.pas' {About_Form},
+  Utils in 'Utils.pas';
 
 //,
   //SelectMetod in 'SelectMetod.pas' {Ferma_SelectMetod};
