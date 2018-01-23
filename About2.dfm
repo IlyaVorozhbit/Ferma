@@ -1,6 +1,6 @@
 object About2_Form: TAbout2_Form
-  Left = 1493
-  Top = 179
+  Left = 222
+  Top = 76
   BorderStyle = bsSingle
   Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077' '#1060#1077#1088#1084#1072
   ClientHeight = 628
@@ -4097,7 +4097,7 @@ object About2_Form: TAbout2_Form
     Top = 567
     Width = 97
     Height = 21
-    Caption = #169' 1998-2009'
+    Caption = #169' 1998-2018'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
