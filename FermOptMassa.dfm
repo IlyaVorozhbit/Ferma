@@ -1,6 +1,6 @@
 object Ferm_opt_massa: TFerm_opt_massa
-  Left = 1490
-  Top = 134
+  Left = 401
+  Top = 158
   Width = 614
   Height = 504
   HorzScrollBar.Visible = False
