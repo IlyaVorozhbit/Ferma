@@ -42,11 +42,10 @@ type
     MaxTension_SG_Edt: TEdit;
     gbDop: TGroupBox;
     imL: TImage;
-    Ok_Btn: TBitBtn;
     lambda_edit: TEdit;
     Button1: TButton;
     CheckBox1: TCheckBox;
-    ColorBox: TCheckBox;
+    ColorBox2: TCheckBox;
     gbXY: TGroupBox;
     lMoveX: TLabel;
     lMoveY: TLabel;
@@ -69,6 +68,8 @@ type
     mi7: TMenuItem;
     ColorDialog: TColorDialog;
     check_decimal: TCheckBox;
+    Button2: TButton;
+    ColorBox: TCheckBox;
     procedure Moves_BtnClick(Sender: TObject);
     procedure Sn_CBxChange(Sender: TObject);
     procedure FormStart;
@@ -80,7 +81,7 @@ type
     procedure CheckBox1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure ColorBoxClick(Sender: TObject);
+    procedure ColorBox2Click(Sender: TObject);
     procedure DrawCell2(Sender: TObject; ACol, ARow: Integer; Rect: TRect;
       State: TGridDrawState);
     procedure FormActivate(Sender: TObject);
@@ -91,6 +92,7 @@ type
     procedure chbZag2Click(Sender: TObject);
     procedure mi0Click(Sender: TObject);
     procedure check_decimalClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
 
 
   private
@@ -423,7 +425,7 @@ if SimpleFermResult_form.tag = 0 then Show{ my fucking comment Modal};
 if SimpleFermResult_form.tag = 1 then
         begin
         formstart;
-        OK_btn.Click;
+        Button2.Click;
         end;
 
 
@@ -592,7 +594,7 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
 
 // Напряжения
    begin
-    param_grd.colcount:=14;
+    param_grd.colcount:=15;
     napr_image.visible:=true;
 
     Button1.enabled:=true;
@@ -628,12 +630,12 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
         Cells[11,0]:=' Случай 1';
         Cells[12,0]:=' Случай 2';
         Cells[13,0]:=' Случай 3';
-
+        Cells[14,0]:='№ стерж.';
 
         for i:=1 to nst do
           begin
             Cells[0,i]:=IntToStr(i);
-			
+            Cells[14,i]:=IntToStr(i);
 			//if(alternative_numbers = true) then
 			//	Cells[1,i]:=formatFloat('0.0####',start_S[i])
 			//else
@@ -943,7 +945,7 @@ var
 begin
  caption:='Результаты расчета на прочность для '+ExtractFileName(Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).real_fname);
  NumOk:=True;
- param_grd.colcount:=14;
+ param_grd.colcount:=15;
  alternative_numbers:=false;
  if Main_Form.FermaNumberButton.Down=False then
   begin
@@ -977,7 +979,7 @@ begin
    end;
   Volume_Edt.Text:=formatFloat('0.000e+00',Start_Value);
   Mass_edt.Text:=formatFloat('0.000e+00',Start_Value*Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).Ferm.pltn);
-
+  
   end;
 
   procedure TSimpleFermResult_Form.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -1040,7 +1042,7 @@ lNodesXY.Caption:='Коорд. узлов ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild)
 lMoveX.Caption:='Перемещения по Х ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).Ferm.s_lin+']';
 lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).Ferm.s_lin+']';
 
-ok_btn.SetFocus;
+Button2.SetFocus;
 end;
 
 procedure TSimpleFermResult_Form.DrawCell(Sender: TObject; ACol,
@@ -1471,21 +1473,34 @@ begin
      imL.Left   := ll div 2;
      lambda_edit.Left := imL.Left+imL.Width;
      CheckBox1.Left   := lambda_edit.Left+lambda_edit.Width+ll div 2;
-     ColorBox.Left    := CheckBox1.Left;
-     PeremBox.Left    := CheckBox1.Left;
+     //ColorBox.Left    := CheckBox1.Left;
+     PeremBox.Left    := Button1.Left;
      CheckBox1.Width  := gbDop.ClientWidth - CheckBox1.Left - ll div 2;
-     ColorBox.Width   := CheckBox1.Width;
+     //ColorBox.Width   := CheckBox1.Width;
      PeremBox.Width   := CheckBox1.Width;
      Button1.ClientHeight := lTmp.Height+8;
-     OK_Btn.ClientHeight := Button1.ClientHeight;
+     Button2.ClientHeight := Button1.ClientHeight;
      CheckBox1.Top := 3*ll div 2;
-     ColorBox.Top  := CheckBox1.Top + CheckBox1.Height;
-     PeremBox.Top  := ColorBox.Top + ColorBox.Height;
-     AlignAtVCenter( lambda_edit, ColorBox );
-     AlignAtVCenter( imL, ColorBox );
-     Button1.Top  := PeremBox.Top + PeremBox.Height + ll div 3;
-     OK_Btn.Top  := Button1.Top;
-     gbDop.ClientHeight := Button1.Top+Button1.Height+ll;
+     ColorBox.Top  := gbXY.Top - 25;
+     //ColorBox.Top     := gbXY.Height + 20;
+
+     //PeremBox.Top  := ColorBox.Top + ColorBox.Height;
+
+     PeremBox.Top  := ColorBox2.Top;
+     //AlignAtVCenter( lambda_edit, ColorBox );
+     //AlignAtVCenter( imL, ColorBox );
+
+     AlignAtVCenter( lambda_edit, Button1 );
+     AlignAtVCenter( imL, Button1 );
+
+     //Button1.Top  := PeremBox.Top + PeremBox.Height + ll div 3;
+     Button1.Top := Button1.Top - 2;
+     //Button2.Top  := Button1.Top;
+     Button2.Top := gbDop.Height + gbDop.Top;
+
+     Button2.Top := Button2.Top - 10;
+     Button2.Left := Button2.Left + 85;
+     gbDop.ClientHeight := Button1.Top+Button1.Height + 22;
 
 
      gbDop.Left    := self.ClientWidth  - gbDop.Width  - ll;
@@ -1545,7 +1560,7 @@ begin
      //ShowMessage('Hello World');
 end;
 
-procedure TSimpleFermResult_Form.ColorBoxClick(Sender: TObject);
+procedure TSimpleFermResult_Form.ColorBox2Click(Sender: TObject);
 begin
 SimpleFermResult_Form.Moves_BtnClick(self);
 end;
@@ -1650,7 +1665,7 @@ else   begin
        end;
 
 Moves_BtnClick(Self);
-ok_btn.SetFocus;
+Button2.SetFocus;
 end;
 
 
@@ -1688,6 +1703,11 @@ begin
   //  ShowMessage('false');
 
   SimpleFermResult_Form.Moves_BtnClick(self);
+end;
+
+procedure TSimpleFermResult_Form.Button2Click(Sender: TObject);
+begin
+        close;
 end;
 
 end.
