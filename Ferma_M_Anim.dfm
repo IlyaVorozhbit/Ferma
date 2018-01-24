@@ -237,6 +237,7 @@ object Form3: TForm3
     Top = 319
     Width = 721
     Height = 73
+    Color = clWhite
     Ctl3D = True
     ParentCtl3D = False
     TabOrder = 1

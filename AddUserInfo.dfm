@@ -141,7 +141,7 @@ object AddUserInfo_form: TAddUserInfo_form
     EditLabel.Height = 13
     EditLabel.Caption = #1053#1086#1084#1077#1088' '#1075#1088#1091#1087#1087#1099
     TabOrder = 7
-    Text = '06-621'
+    Text = '6'#1054'-309'#1041
   end
   object LabeledEdit9: TLabeledEdit
     Left = 280

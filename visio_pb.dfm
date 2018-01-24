@@ -36,6 +36,7 @@ object vpb: Tvpb
     Height = 278
     Align = alClient
     BevelOuter = bvLowered
+    Color = clWhite
     TabOrder = 6
     object GroupBox1: TGroupBox
       Left = 13
@@ -202,7 +203,7 @@ object vpb: Tvpb
     Left = 143
     Top = 29
     Width = 24
-    Height = 24
+    Height = 21
     TabOrder = 1
     Text = '23'
     OnChange = Edit1Change
@@ -262,7 +263,7 @@ object vpb: Tvpb
     Left = 143
     Top = 98
     Width = 18
-    Height = 24
+    Height = 21
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 5
@@ -281,7 +282,7 @@ object vpb: Tvpb
     Left = 143
     Top = 52
     Width = 24
-    Height = 24
+    Height = 21
     TabOrder = 2
     Text = '23'
     OnChange = Edit3Change
@@ -298,7 +299,7 @@ object vpb: Tvpb
     Left = 143
     Top = 75
     Width = 24
-    Height = 24
+    Height = 21
     TabOrder = 3
     Text = '23'
     OnChange = Edit4Change

@@ -218,6 +218,7 @@ object FermOptMassaRez_form: TFermOptMassaRez_form
     Top = 320
     Width = 721
     Height = 73
+    Color = clWhite
     Ctl3D = True
     ParentCtl3D = False
     TabOrder = 4

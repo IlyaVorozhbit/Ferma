@@ -178,6 +178,7 @@ type
      //Vorozhbit
     id1: Integer;
     id2: Integer;
+    lol: Integer;
 
                Procedure LoadData;
                procedure SaveData;
@@ -726,7 +727,7 @@ begin
           if num_ferm=1 then
           begin
                Main_Form.MainMenu1.Items[1].Enabled     :=false;
-               Main_Form.Caption                        :='Ферма';
+               Main_Form.Caption                        :='САПР Ferma 8';
                Main_Form.Ferma_Graph_Enter_Panel.Visible:=false;
                Ferma_Fd_Form.first_show_FD_form         :=true;
                Ferma_Fd_Form.Close;
@@ -806,7 +807,7 @@ procedure TFerma_Form.FormCreate(Sender: TObject);
 
   var i:integer;
     begin
-
+    lol:= 0;
      //Vorozhbit
      // CTRL + Z
 
@@ -1136,7 +1137,7 @@ begin
           LineTo(coord_axis_X+45,20);
           MoveTo(coord_axis_X+50,15);LineTo(coord_axis_X+55,20);
 
-          brush.Color:=clBtnFace;
+          brush.Color:=clWhite;
           font.name  :='times new roman';
           font.Style :=[fsBold];
           font.size  :=10;
@@ -1441,7 +1442,7 @@ begin
        Main_Form.F_Save_TBtn.Enabled            :=true
      else
        Main_Form.F_Save_TBtn.Enabled            :=false;
-     Main_Form.Caption                        :='Ферма - подсистема '+#39+'Ферменная конструкция'+#39;
+     Main_Form.Caption                        :='САПР Ferma 8 - подсистема '+#39+'Ферменная конструкция'+#39;
 
      Main_Form.Plast_Panel.Visible            :=false;
      Main_Form.Plast_Graph_Enter_Panel.Visible:=false;
@@ -2658,7 +2659,8 @@ var
      ff:File of Byte;
      mg:Integer;
 begin
-
+     //lol := lol + 1;
+     //ShowMessage('lol: ' + IntToStr(lol));
      // Проверка на существование файла расчета
      if FileExists(ChangeFileExt(FileName,'.vyv')) then
      begin
@@ -2704,6 +2706,8 @@ begin
            exit;
          end;
      // Вывод результатов простого расчета
+       //SimpleFermResult_Form.Destroy();
+       //SimpleFermResult_Form.FormCreate(Self);
        SimpleFermResult_Form.Execute(ChangeFileExt(FileName,'.vyv'));
      //SimpleFermResult_Form.Moves_BtnClick(Self);
 end;
@@ -3739,7 +3743,7 @@ begin
      Main_Form.StatusBar1.Panels[0].Text               :='';
      Main_Form.StatusBar1.Panels[1].Text               :='';
      Main_Form.StatusBar1.Panels[2].Text               :='';
-     Main_Form.Caption                                 :='Ферма';
+     Main_Form.Caption                                 :='САПР Ferma 8';
 end;
 
 procedure TFerma_Form.FormShow(Sender: TObject);
