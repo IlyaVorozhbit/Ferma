@@ -1,6 +1,6 @@
 object FermOptMassaRez_form: TFermOptMassaRez_form
-  Left = 1403
-  Top = 259
+  Left = 386
+  Top = 143
   Width = 730
   Height = 428
   Caption = #1056#1077#1079#1091#1083#1100#1090#1072#1090#1099' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080
