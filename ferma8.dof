@@ -90,8 +90,8 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=D:\Ferma\Own
-UnitOutputDir=D:\Ferma\Source
+OutputDir=E:\Ferma\Own
+UnitOutputDir=E:\Ferma\Source
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=
@@ -139,14 +139,15 @@ Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlUnitOutputDirectory]
 Count=4
-Item0=D:\Ferma\Source
-Item1=E:\Ferma\Ferma Source
-Item2=E:\Ferma\Source
+Item0=E:\Ferma\Source
+Item1=D:\Ferma\Source
+Item2=E:\Ferma\Ferma Source
 Item3=C:\Ferma\Source
 [HistoryLists\hlOutputDirectorry]
-Count=5
-Item0=D:\Ferma\Own
-Item1=D:\Ferma\EXE
-Item2=E:\Ferma\Ferma Source
-Item3=E:\Ferma\EXE
-Item4=C:\Ferma\EXE
+Count=6
+Item0=E:\Ferma\Own
+Item1=D:\Ferma\Own
+Item2=D:\Ferma\EXE
+Item3=E:\Ferma\Ferma Source
+Item4=E:\Ferma\EXE
+Item5=C:\Ferma\EXE

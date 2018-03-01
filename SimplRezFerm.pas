@@ -42,7 +42,6 @@ type
     MaxTension_SG_Edt: TEdit;
     gbDop: TGroupBox;
     imL: TImage;
-    Ok_Btn: TBitBtn;
     lambda_edit: TEdit;
     Button1: TButton;
     ColorBoxOld: TCheckBox;
@@ -52,7 +51,7 @@ type
     Param_Grd2: TStringGrid;
     lNodesXY: TLabel;
     lTitle: TLabel;
-    peremBox: TCheckBox;
+    peremBox2: TCheckBox;
     zag1: TButton;
     lTmp: TLabel;
     chbZag2: TCheckBox;
@@ -69,6 +68,12 @@ type
     ColorDialog: TColorDialog;
     CheckBox1: TCheckBox;
     ColorBox: TCheckBox;
+    Ok_Btn: TButton;
+    peremBox3: TCheckBox;
+    check_decimal: TCheckBox;
+    peremBox: TCheckBox;
+    Label2: TLabel;
+    Image7: TImage;
     procedure Moves_BtnClick(Sender: TObject);
     procedure Sn_CBxChange(Sender: TObject);
     procedure FormStart;
@@ -85,11 +90,12 @@ type
       State: TGridDrawState);
     procedure FormActivate(Sender: TObject);
     procedure zag1Click(Sender: TObject);
-    procedure peremBoxClick(Sender: TObject);
+    procedure peremBox2Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure chbZag2Click(Sender: TObject);
     procedure mi0Click(Sender: TObject);
+    procedure check_decimalClick(Sender: TObject);
 
 
   private
@@ -659,8 +665,11 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
 
                  for j:=1 to nsn do
                  with Param_grd do
-                   Cells[j+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i]/sd));
 
+                  if(check_decimal.Checked = true) then
+					          Cells[j+7,i]:=formatFloat('0.0########',abs(ps[i,j]*start_S[i]/sd))
+				          else
+					        Cells[j+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i]/sd));
 
                  for j:=nsn+1 to 3 do
                  with Param_grd do
@@ -774,12 +783,18 @@ if ((strtoint(lambda_edit.text)<50)or(strtoint(lambda_edit.text)>220))
   if (Sgim_cells[i,j]<>-1) then
              begin
 
-Cells[Sgim_cells[i,j]+4,i]:=formatFloat('0.00e+00',Abs(sd_sg/ps[i,j]));
+              Cells[Sgim_cells[i,j]+4,i]:=formatFloat('0.00e+00',Abs(sd_sg/ps[i,j]));
 
-Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i])/sd_sg);
-
-Cells[Sgim_cells[i,j]+10,i]:=formatFloat('0.00e+00',(abs(ps[i,j]*start_S[i])/sd_sg)*(li[i]/strtofloat(lambda_edit.text))*(li[i]/strtofloat(lambda_edit.text)));
-             end;
+              if(check_decimal.Checked = true) then
+						  	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.########',abs(ps[i,j]*start_S[i])/sd_sg)
+						  else
+						  	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i])/sd_sg);
+							
+						  if(check_decimal.Checked = true) then
+						  	Cells[Sgim_cells[i,j]+10,i]:=formatFloat('0.########',(abs(ps[i,j]*start_S[i])/sd_sg)*(li[i]/strtofloat(lambda_edit.text))*(li[i]/strtofloat(lambda_edit.text)))
+					  	else
+						  	Cells[Sgim_cells[i,j]+10,i]:=formatFloat('0.00e+00',(abs(ps[i,j]*start_S[i])/sd_sg)*(li[i]/strtofloat(lambda_edit.text))*(li[i]/strtofloat(lambda_edit.text)));
+              end;
 
           end;
      end;
@@ -1438,19 +1453,26 @@ begin
      lambda_edit.Left := imL.Left+imL.Width;
      //CheckBox1.Left   := lambda_edit.Left+lambda_edit.Width+ll div 2;
      //ColorBox.Left    := lambda_edit.Left+lambda_edit.Width+ll div 2;
-     PeremBox.Left    := lambda_edit.Left+lambda_edit.Width+ll div 2;
+     //PeremBox.Left    := lambda_edit.Left+lambda_edit.Width+ll div 2;
      CheckBox1.Width  := gbDop.ClientWidth - CheckBox1.Left - ll div 2;
      //ColorBox.Width   := 192;
-     PeremBox.Width   := 192;
+     //PeremBox.Width   := 192;
      Button1.ClientHeight := lTmp.Height+8;
      OK_Btn.ClientHeight := Button1.ClientHeight;
      //CheckBox1.Top := 3*ll div 2;
      //ColorBox.Top  := 33;
      //PeremBox.Top  := ColorBox.Top + ColorBox.Height;
-     PeremBox.Top := 33;
-     AlignAtVCenter( lambda_edit, PeremBox );
-     AlignAtVCenter( imL, PeremBox );
-     Button1.Top  := PeremBox.Top + PeremBox.Height + ll div 3;
+     //PeremBox.Top := 33;
+     AlignAtVCenter( lambda_edit, PeremBox2 );
+     AlignAtVCenter( imL, PeremBox2 );
+
+     lambda_edit.Left := lambda_edit.Left + 110;
+     imL.Left := imL.Left + 110;
+
+     lambda_edit.Top := lambda_edit.Top - 10;
+     imL.Top := imL.Top - 10;
+
+     Button1.Top  := PeremBox2.Top + PeremBox2.Height + ll div 3;
      OK_Btn.Top  := Button1.Top;
      gbDop.ClientHeight := Button1.Top+Button1.Height+ll;
 
@@ -1475,7 +1497,10 @@ begin
      gbXY.Width    := gbParams.Left-gbXY.Left-ll;
 
      AlignAtHCenter( visio, self );
-     AlignAtVCenter( Moves_Image, visio );
+     AlignAtHCenter( Image7, gbXY );
+     AlignAtHCenter( Label2, gbXY );
+     Image7.Left := Image7.Left - 70;
+
      Moves_Image.Left := visio.Left - Moves_Image.Width - ll;
 
      //!! VisioBox.Height := Visio.Top - ll - ll div 3 - 30;
@@ -1629,11 +1654,16 @@ Moves_BtnClick(Self);
 ok_btn.SetFocus;
 end;
 
-procedure TSimpleFermResult_Form.peremBoxClick(Sender: TObject);
+procedure TSimpleFermResult_Form.peremBox2Click(Sender: TObject);
 begin
 SimpleFermResult_Form.Moves_BtnClick(self);
 end;
 
 
+
+procedure TSimpleFermResult_Form.check_decimalClick(Sender: TObject);
+begin
+  SimpleFermResult_Form.Moves_BtnClick(self);
+end;
 
 end.
