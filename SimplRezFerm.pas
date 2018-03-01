@@ -933,6 +933,7 @@ var
  Start_Value:extended;
  Current_Ferm:TFerm;
 begin
+ self.Height := self.Height - 50;
  caption:='Результаты расчета на прочность для '+ExtractFileName(Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).real_fname);
  NumOk:=True;
  param_grd.colcount:=15;
@@ -1472,6 +1473,9 @@ begin
      //PeremBox.Width   := 192;
      Button1.ClientHeight := lTmp.Height+8;
      OK_Btn.ClientHeight := Button1.ClientHeight;
+     OK_Btn.Width := 80;
+     
+     
      //CheckBox1.Top := 3*ll div 2;
      //ColorBox.Top  := 33;
      //PeremBox.Top  := ColorBox.Top + ColorBox.Height;
@@ -1479,14 +1483,20 @@ begin
      AlignAtVCenter( lambda_edit, PeremBox2 );
      AlignAtVCenter( imL, PeremBox2 );
 
-     lambda_edit.Left := lambda_edit.Left + 110;
-     imL.Left := imL.Left + 110;
+     lambda_edit.Left := lambda_edit.Left + 130;
+     imL.Left := imL.Left + 125;
 
      lambda_edit.Top := lambda_edit.Top - 10;
      imL.Top := imL.Top - 10;
 
      Button1.Top  := PeremBox2.Top + PeremBox2.Height + ll div 3;
-     OK_Btn.Top  := Button1.Top;
+
+     Button1.Top   := lambda_edit.Top;
+     Button1.Left   := lambda_edit.Left - (Button1.Width+30);
+
+     OK_Btn.Top   := lambda_edit.Top;
+     OK_Btn.Left  := lambda_edit.Left + 50;
+
      gbDop.ClientHeight := Button1.Top+Button1.Height+ll;
 
 
