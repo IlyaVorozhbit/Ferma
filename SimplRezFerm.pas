@@ -602,7 +602,10 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
     Button1.enabled:=true;
     checkbox1.Enabled:=true;
     lambda_edit.Enabled:=true;
-
+    param_grd.ColWidths[1] := 70;
+    param_grd.ColWidths[5] := 60;
+    param_grd.ColWidths[6] := 60;
+    param_grd.ColWidths[7] := 60;
     with Param_Grd do
       begin
         RowCount:=nst+1;
@@ -638,13 +641,21 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
           begin
             Cells[0,i]:=IntToStr(i);
             Cells[14,i]:=IntToStr(i);
-            Cells[1,i]:=formatFloat('0.000e+00',start_S[i]);
-            for j:=1 to nsn do
-               begin
-            if flag2 = false then Cells[j+1,i]:=formatFloat('0.00e+00',ps[i,j])
-            else Cells[j+1,i]:=formatFloat('0.00e+00',(ps[i,j]*start_S[i]));
 
-                end;
+            if(check_decimal.Checked = true) then
+              Cells[1,i]:=formatFloat('0.0########',start_S[i])
+            else
+              Cells[1,i]:=formatFloat('0.000e+00',start_S[i]);
+
+            // напряжения
+            for j:=1 to nsn do
+            begin
+              if flag2 = false then
+                Cells[j+1,i]:=formatFloat('0.00e+00',ps[i,j])
+              else
+                Cells[j+1,i]:=formatFloat('0.00e+00',(ps[i,j]*start_S[i]));
+
+            end;
 
            for j:=nsn+1 to 3 do
                 begin
@@ -666,9 +677,9 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
                  for j:=1 to nsn do
                  with Param_grd do
 
-                  if(check_decimal.Checked = true) then
-					          Cells[j+7,i]:=formatFloat('0.0########',abs(ps[i,j]*start_S[i]/sd))
-				          else
+                  //if(check_decimal.Checked = true) then
+					        //  Cells[j+7,i]:=formatFloat('0.0########',abs(ps[i,j]*start_S[i]/sd))
+				          //else
 					        Cells[j+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i]/sd));
 
                  for j:=nsn+1 to 3 do
@@ -785,9 +796,9 @@ if ((strtoint(lambda_edit.text)<50)or(strtoint(lambda_edit.text)>220))
 
               Cells[Sgim_cells[i,j]+4,i]:=formatFloat('0.00e+00',Abs(sd_sg/ps[i,j]));
 
-              if(check_decimal.Checked = true) then
-						  	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.########',abs(ps[i,j]*start_S[i])/sd_sg)
-						  else
+              //if(check_decimal.Checked = true) then
+						  //	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.########',abs(ps[i,j]*start_S[i])/sd_sg)
+						  //else
 						  	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i])/sd_sg);
 							
 						  if(check_decimal.Checked = true) then
@@ -1341,6 +1352,8 @@ begin
 
      lTmp.caption := Param_Grd.Cells[0,0];
      Param_Grd.ColWidths[0] := 20; //lTmp.Width
+     Param_Grd.ColWidths[1] := 60;
+
      Param_Grd.ColWidths[14] := 20; //lTmp.Width
 
      w                      := Param_Grd.ColWidths[0]+2;
