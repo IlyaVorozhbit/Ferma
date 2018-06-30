@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=8
 MinorVer=0
 Release=0
-Build=39
+Build=40
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=1251
 [Version Info Keys]
 CompanyName=МАИ, гр. 06-621, 06-421,06-422,6О-309Б(18),1998-2018
 FileDescription=
-FileVersion=8.0.0.39
+FileVersion=8.0.0.40
 InternalName=Ferma8
 LegalCopyright=©1998-2018 Березеный П.В.,Логвинов Г.А.,Кагиров Т.А.Зайцев И.М, Назаров В.Р.
 LegalTrademarks=
