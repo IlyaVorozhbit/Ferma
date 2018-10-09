@@ -1,13 +1,15 @@
 object Form4: TForm4
-  Left = 506
-  Top = 35
-  Width = 200
-  Height = 160
+  Left = 526
+  Top = 294
+  BorderStyle = bsToolWindow
+  Caption = #1054#1087#1090#1080#1084#1080#1079#1072#1094#1080#1103
+  ClientHeight = 121
+  ClientWidth = 274
   Color = clWhite
   Constraints.MaxHeight = 160
-  Constraints.MaxWidth = 200
+  Constraints.MaxWidth = 290
   Constraints.MinHeight = 160
-  Constraints.MinWidth = 200
+  Constraints.MinWidth = 290
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -18,31 +20,31 @@ object Form4: TForm4
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 8
+    Left = 34
     Top = 8
-    Width = 180
+    Width = 206
     Height = 13
-    Caption = #1042#1074#1077#1076#1080#1090#1077' '#1085#1086#1084#1077#1088' '#1086#1076#1085#1086#1075#1086' '#1080#1083#1080' '#1085#1086#1084#1077#1088#1072' '
+    Caption = #1042#1074#1077#1076#1080#1090#1077' '#1085#1086#1084#1077#1088' '#1086#1076#1085#1086#1075#1086' '#1091#1079#1083#1072' '#1080#1083#1080' '#1085#1086#1084#1077#1088#1072' '
   end
   object Label2: TLabel
-    Left = 8
+    Left = 48
     Top = 24
-    Width = 168
+    Width = 177
     Height = 13
     Caption = #1085#1077#1089#1082#1086#1083#1100#1082#1080#1093' '#1091#1079#1083#1086#1074' '#1095#1077#1088#1077#1079' '#1079#1072#1087#1103#1090#1091#1102
   end
   object Edit1: TEdit
-    Left = 45
+    Left = 44
     Top = 56
-    Width = 100
-    Height = 21
+    Width = 185
+    Height = 25
     TabOrder = 0
   end
   object Ok_Btn: TBitBtn
-    Left = 45
-    Top = 95
-    Width = 100
-    Height = 22
+    Left = 52
+    Top = 88
+    Width = 169
+    Height = 25
     Caption = 'OK'
     Default = True
     ModalResult = 1
