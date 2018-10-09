@@ -3,6 +3,7 @@ object FermOptMassaRez_form: TFermOptMassaRez_form
   Top = 143
   Width = 743
   Height = 444
+  BorderIcons = [biSystemMenu]
   Caption = #1056#1077#1079#1091#1083#1100#1090#1072#1090#1099' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080
   Color = clWhite
   Constraints.MaxHeight = 468
