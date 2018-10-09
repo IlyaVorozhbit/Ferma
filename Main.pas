@@ -227,6 +227,8 @@ type
     N18: TMenuItem;
     N21: TMenuItem;
     TokPanelMove: TToolButton;
+    PlastButtonMove: TToolButton;
+    FermaButtonMove: TToolButton;
 
     procedure About1Click(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
@@ -340,6 +342,8 @@ type
     procedure TokButtonUpClick(Sender: TObject);
     procedure TokButtonDownClick(Sender: TObject);
     procedure TokPanelMoveClick(Sender: TObject);
+    procedure PlastButtonMoveClick(Sender: TObject);
+    procedure FermaButtonMoveClick(Sender: TObject);
 
     // Едокимова Е.А. начало
     protected
@@ -406,6 +410,8 @@ var
    ASize: Boolean;
 
    TokPanelPosition: integer;
+   PlastPanelPosition: integer;
+   FermaPanelPosition: integer;
 
    const
    crDeleteElement = 1;    // Курсорчик удаления
@@ -911,7 +917,9 @@ var
 begin
 
    TokPanelPosition := 0;
-
+   PlastPanelPosition := 0;
+   FermaPanelPosition := 0;
+   
    //Устанавливаем необходимые курсоры из ресурса
    Screen.Cursors[crDeleteElement] := LoadCursor(HInstance, 'DELETEELEMENT');
 
@@ -2227,6 +2235,52 @@ begin
 
   3:
     Main_Form.TOK_Graph_Enter_Panel.Align := alRight;
+  end;
+end;
+
+procedure TMain_Form.PlastButtonMoveClick(Sender: TObject);
+begin
+  if(PlastPanelPosition = 3) then
+    PlastPanelPosition := 0
+  else
+    PlastPanelPosition := PlastPanelPosition +1;
+
+  case PlastPanelPosition of
+
+  0:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alBottom;
+
+  1:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alTop;
+
+  2:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alLeft;
+
+  3:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alRight;
+  end;
+end;
+
+procedure TMain_Form.FermaButtonMoveClick(Sender: TObject);
+begin
+  if(FermaPanelPosition = 3) then
+    FermaPanelPosition := 0
+  else
+    FermaPanelPosition := FermaPanelPosition +1;
+
+  case FermaPanelPosition of
+
+  0:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alBottom;
+
+  1:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alTop;
+
+  2:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alLeft;
+
+  3:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alRight;
   end;
 end;
 
