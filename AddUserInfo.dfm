@@ -1,8 +1,8 @@
 object AddUserInfo_form: TAddUserInfo_form
   Left = 397
   Top = 166
-  Width = 521
-  Height = 259
+  Width = 550
+  Height = 278
   Caption = #1042#1074#1086#1076' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1086' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET

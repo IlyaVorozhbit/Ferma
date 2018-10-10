@@ -1,12 +1,13 @@
 object FermOptMassaRez_form: TFermOptMassaRez_form
   Left = 386
   Top = 143
-  Width = 730
-  Height = 428
+  Width = 743
+  Height = 444
+  BorderIcons = [biSystemMenu]
   Caption = #1056#1077#1079#1091#1083#1100#1090#1072#1090#1099' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080
   Color = clWhite
-  Constraints.MaxHeight = 428
-  Constraints.MaxWidth = 730
+  Constraints.MaxHeight = 468
+  Constraints.MaxWidth = 760
   Constraints.MinHeight = 428
   Constraints.MinWidth = 730
   Font.Charset = DEFAULT_CHARSET

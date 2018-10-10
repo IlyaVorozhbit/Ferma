@@ -1,13 +1,13 @@
 object Form3: TForm3
   Left = 349
   Top = 259
-  Width = 732
-  Height = 426
+  Width = 743
+  Height = 436
   Caption = #1056#1077#1079#1091#1083#1100#1090#1072#1090#1099' '#1091#1079#1083#1086#1074#1086#1081' '#1086#1087#1090#1080#1084#1080#1079#1072#1094#1080#1080
   Color = clWhite
-  Constraints.MaxHeight = 426
-  Constraints.MaxWidth = 732
-  Constraints.MinHeight = 426
+  Constraints.MaxHeight = 476
+  Constraints.MaxWidth = 772
+  Constraints.MinHeight = 436
   Constraints.MinWidth = 732
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

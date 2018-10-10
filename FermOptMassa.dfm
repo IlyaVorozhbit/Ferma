@@ -1,8 +1,8 @@
 object Ferm_opt_massa: TFerm_opt_massa
   Left = 401
   Top = 158
-  Width = 614
-  Height = 504
+  Width = 627
+  Height = 513
   HorzScrollBar.Visible = False
   Caption = #1054#1087#1090#1080#1084#1080#1079#1072#1094#1080#1103' '#1087#1086' '#1084#1072#1089#1089#1077'.'
   Color = clWhite

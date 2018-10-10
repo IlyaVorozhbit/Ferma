@@ -1,7 +1,7 @@
 object Form2: TForm2
   Left = 675
   Top = 189
-  Width = 235
+  Width = 264
   Height = 147
   Caption = #1059#1076#1072#1083#1080#1090#1100' '#1091#1079#1077#1083
   Color = clWhite
@@ -30,14 +30,14 @@ object Form2: TForm2
   object numNode: TEdit
     Left = 48
     Top = 48
-    Width = 121
+    Width = 145
     Height = 21
     TabOrder = 0
   end
   object Button1: TButton
     Left = 72
     Top = 80
-    Width = 75
+    Width = 97
     Height = 25
     Caption = #1059#1076#1072#1083#1080#1090#1100
     ModalResult = 1

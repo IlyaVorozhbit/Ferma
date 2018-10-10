@@ -602,7 +602,10 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
     Button1.enabled:=true;
     checkbox1.Enabled:=true;
     lambda_edit.Enabled:=true;
-
+    param_grd.ColWidths[1] := 70;
+    param_grd.ColWidths[5] := 60;
+    param_grd.ColWidths[6] := 60;
+    param_grd.ColWidths[7] := 60;
     with Param_Grd do
       begin
         RowCount:=nst+1;
@@ -638,13 +641,21 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
           begin
             Cells[0,i]:=IntToStr(i);
             Cells[14,i]:=IntToStr(i);
-            Cells[1,i]:=formatFloat('0.000e+00',start_S[i]);
-            for j:=1 to nsn do
-               begin
-            if flag2 = false then Cells[j+1,i]:=formatFloat('0.00e+00',ps[i,j])
-            else Cells[j+1,i]:=formatFloat('0.00e+00',(ps[i,j]*start_S[i]));
 
-                end;
+            if(check_decimal.Checked = true) then
+              Cells[1,i]:=formatFloat('0.0########',start_S[i])
+            else
+              Cells[1,i]:=formatFloat('0.000e+00',start_S[i]);
+
+            // напряжения
+            for j:=1 to nsn do
+            begin
+              if flag2 = false then
+                Cells[j+1,i]:=formatFloat('0.00e+00',ps[i,j])
+              else
+                Cells[j+1,i]:=formatFloat('0.00e+00',(ps[i,j]*start_S[i]));
+
+            end;
 
            for j:=nsn+1 to 3 do
                 begin
@@ -666,9 +677,9 @@ lMoveY.Caption:='Перемещения по У ['+Ferma_M.TFerma_Form(Main_Form.ActiveMDIChil
                  for j:=1 to nsn do
                  with Param_grd do
 
-                  if(check_decimal.Checked = true) then
-					          Cells[j+7,i]:=formatFloat('0.0########',abs(ps[i,j]*start_S[i]/sd))
-				          else
+                  //if(check_decimal.Checked = true) then
+					        //  Cells[j+7,i]:=formatFloat('0.0########',abs(ps[i,j]*start_S[i]/sd))
+				          //else
 					        Cells[j+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i]/sd));
 
                  for j:=nsn+1 to 3 do
@@ -785,9 +796,9 @@ if ((strtoint(lambda_edit.text)<50)or(strtoint(lambda_edit.text)>220))
 
               Cells[Sgim_cells[i,j]+4,i]:=formatFloat('0.00e+00',Abs(sd_sg/ps[i,j]));
 
-              if(check_decimal.Checked = true) then
-						  	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.########',abs(ps[i,j]*start_S[i])/sd_sg)
-						  else
+              //if(check_decimal.Checked = true) then
+						  //	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.########',abs(ps[i,j]*start_S[i])/sd_sg)
+						  //else
 						  	Cells[Sgim_cells[i,j]+7,i]:=formatFloat('0.00e+00',abs(ps[i,j]*start_S[i])/sd_sg);
 							
 						  if(check_decimal.Checked = true) then
@@ -922,6 +933,7 @@ var
  Start_Value:extended;
  Current_Ferm:TFerm;
 begin
+ self.Height := self.Height - 50;
  caption:='Результаты расчета на прочность для '+ExtractFileName(Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).real_fname);
  NumOk:=True;
  param_grd.colcount:=15;
@@ -1341,6 +1353,8 @@ begin
 
      lTmp.caption := Param_Grd.Cells[0,0];
      Param_Grd.ColWidths[0] := 20; //lTmp.Width
+     Param_Grd.ColWidths[1] := 60;
+
      Param_Grd.ColWidths[14] := 20; //lTmp.Width
 
      w                      := Param_Grd.ColWidths[0]+2;
@@ -1459,6 +1473,9 @@ begin
      //PeremBox.Width   := 192;
      Button1.ClientHeight := lTmp.Height+8;
      OK_Btn.ClientHeight := Button1.ClientHeight;
+     OK_Btn.Width := 80;
+     
+     
      //CheckBox1.Top := 3*ll div 2;
      //ColorBox.Top  := 33;
      //PeremBox.Top  := ColorBox.Top + ColorBox.Height;
@@ -1466,14 +1483,20 @@ begin
      AlignAtVCenter( lambda_edit, PeremBox2 );
      AlignAtVCenter( imL, PeremBox2 );
 
-     lambda_edit.Left := lambda_edit.Left + 110;
-     imL.Left := imL.Left + 110;
+     lambda_edit.Left := lambda_edit.Left + 130;
+     imL.Left := imL.Left + 125;
 
      lambda_edit.Top := lambda_edit.Top - 10;
      imL.Top := imL.Top - 10;
 
      Button1.Top  := PeremBox2.Top + PeremBox2.Height + ll div 3;
-     OK_Btn.Top  := Button1.Top;
+
+     Button1.Top   := lambda_edit.Top;
+     Button1.Left   := lambda_edit.Left - (Button1.Width+30);
+
+     OK_Btn.Top   := lambda_edit.Top;
+     OK_Btn.Left  := lambda_edit.Left + 50;
+
      gbDop.ClientHeight := Button1.Top+Button1.Height+ll;
 
 

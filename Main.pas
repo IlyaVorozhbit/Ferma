@@ -5,7 +5,8 @@ interface
 uses
    Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
    Menus, ComCtrls, ToolWin, ExtCtrls, StdCtrls, ImgList, Registry, IdGlobal,
-   OleServer, IniFiles, WordXP, Variants, Clipbrd, Buffer, Word2000, StrUtils;
+   OleServer, IniFiles, WordXP, Variants, Clipbrd, Buffer, Word2000, StrUtils,
+  Buttons;
 
   //const
  // Dev_Height: Integer  = 1024;  // Высота экрана разработчика в пикселях
@@ -225,6 +226,9 @@ type
     ToolButton45: TToolButton;
     N18: TMenuItem;
     N21: TMenuItem;
+    TokPanelMove: TToolButton;
+    PlastButtonMove: TToolButton;
+    FermaButtonMove: TToolButton;
 
     procedure About1Click(Sender: TObject);
     procedure Exit1Click(Sender: TObject);
@@ -335,6 +339,11 @@ type
     procedure TokNextBtnClick(Sender: TObject);
     procedure N20Click(Sender: TObject);
     procedure Sort(Sender: TObject);
+    procedure TokButtonUpClick(Sender: TObject);
+    procedure TokButtonDownClick(Sender: TObject);
+    procedure TokPanelMoveClick(Sender: TObject);
+    procedure PlastButtonMoveClick(Sender: TObject);
+    procedure FermaButtonMoveClick(Sender: TObject);
 
     // Едокимова Е.А. начало
     protected
@@ -399,6 +408,10 @@ var
    BIcons: TBorderIcons;
    FSize: array [0..1] of Integer;
    ASize: Boolean;
+
+   TokPanelPosition: integer;
+   PlastPanelPosition: integer;
+   FermaPanelPosition: integer;
 
    const
    crDeleteElement = 1;    // Курсорчик удаления
@@ -525,9 +538,7 @@ var
             end;
    end;
 
-
 end;
-
 
 procedure TMain_Form.NewFerma_MnuClick(Sender: TObject);
 var
@@ -550,7 +561,6 @@ procedure TMain_Form.Open_TBtnClick(Sender: TObject);
 begin
    Open1Click(Self);
 end;
-
 
 procedure TMain_Form.Save_TBtnClick(Sender: TObject);
 begin
@@ -594,13 +604,11 @@ begin
   //Евдокимова Конец
 end;
 
-
 procedure TMain_Form.FermaKonButtonClick(Sender: TObject);
 begin
    if FermaKonButton.Down = False then ferma_FD_form.Visible:=False
    else ferma_FD_form.Visible:=TRUE;
 end;
-
 
 procedure TMain_Form.FermaGraphButtonClick(Sender: TObject);
 begin
@@ -638,7 +646,6 @@ begin
    end;
 end;
 
-
 procedure TMain_Form.None_ToolButtonClick(Sender: TObject);
 begin
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).paintbox.Cursor  :=crDefault;
@@ -653,7 +660,6 @@ begin
       Main_Form.Node_Move_ToolButton.Down:=false;
    end;
 end;
-
 
 procedure TMain_Form.Coord_ToolButtonClick(Sender: TObject);
 begin
@@ -715,7 +721,6 @@ begin
    end;
 end;
 
-
 procedure TMain_Form.Node_ToolButtonClick(Sender: TObject);
 begin
    Main_Form.Node_Move_ToolButton.Down:=false;
@@ -730,7 +735,6 @@ begin
       Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).PivotIdent:=0;
    end;
 end;
-
 
 procedure TMain_Form.PlastGraphButtonClick(Sender: TObject);
 begin
@@ -753,7 +757,6 @@ begin
 
 end;
 
-
 procedure TMain_Form.FermaNumberButtonClick(Sender: TObject);
 var
    I:integer;
@@ -766,7 +769,6 @@ begin
       Main_Form.MDIChildren[I].RePaint;
 
 end;
-
 
 procedure TMain_Form.FormClose(Sender: TObject; var Action: TCloseAction);
 var
@@ -803,7 +805,6 @@ begin
    Plast_Fd_Form.Close;
    TOK_Fd_Form.Close;
    //=================================================================
-
 
    //========== Обработка файла с материалами для фермы ==============
    Ferma_File_Ok:=TRUE;
@@ -901,7 +902,6 @@ begin
    //===== Конец обработки файла с материалами для ТОК =============
 end;
 
-
 procedure TMain_Form.FormShow(Sender: TObject);
 var
    Ferma_mf:System.Text;  // Файл с материалами для фермы
@@ -916,6 +916,10 @@ var
    I:integer;
 begin
 
+   TokPanelPosition := 0;
+   PlastPanelPosition := 0;
+   FermaPanelPosition := 0;
+   
    //Устанавливаем необходимые курсоры из ресурса
    Screen.Cursors[crDeleteElement] := LoadCursor(HInstance, 'DELETEELEMENT');
 
@@ -1016,8 +1020,6 @@ begin
    end;
    //===== Конец обработки файла с материалами для TOK =============
 
-
-
 // Проверка на наличие файла с указанием пути к отчету:
   IniFullName:=ExtractFilePath(Application.ExeName)+'PathToDOC.ini';
   if not FileExists(IniFullName) then
@@ -1045,7 +1047,6 @@ begin
 
 end;
 
-
 procedure TMain_Form.NodeDelete_ToolButtonClick(Sender: TObject);
 begin
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).paintbox.Cursor  :=crDeleteElement;
@@ -1060,7 +1061,6 @@ begin
    end;
    Main_Form.Node_Move_ToolButton.Down:=false;
 end;
-
 
 procedure TMain_Form.Size_ToolButtonClick(Sender: TObject);
 var
@@ -1097,7 +1097,6 @@ begin
    FermaRegionSizeForm.ShowModal;
 end;
 
-
 procedure TMain_Form.TOK_NO_PMIClick(Sender: TObject);
 begin
 
@@ -1112,7 +1111,6 @@ begin
 
 end;
 
-
 procedure TMain_Form.TOK_OK_PMIClick(Sender: TObject);
 begin
 
@@ -1126,7 +1124,6 @@ begin
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).SimpleResults_MnuClick(Sender);
 
 end;
-
 
 procedure TMain_Form.DeletePivot_ToolButtonClick(Sender: TObject);
 begin
@@ -1144,7 +1141,6 @@ begin
    Main_Form.Node_Move_ToolButton.Down:=false;
 end;
 
-
 procedure TMain_Form.PivotTol_ToolButtonClick(Sender: TObject);
 begin
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).paintbox.Cursor  :=crHandPoint;
@@ -1160,7 +1156,6 @@ begin
    Main_Form.StatusBar1.Panels[2].Text := '';
    Main_Form.Node_Move_ToolButton.Down:=false;
 end;
-
 
 procedure TMain_Form.DeletePivot12_ToolButtonClick(Sender: TObject);
 begin
@@ -1178,7 +1173,6 @@ begin
    Main_Form.Node_Move_ToolButton.Down:=false;
 end;
 
-
 procedure TMain_Form.N5Click(Sender: TObject);
 begin
    if not sorted then
@@ -1191,12 +1185,10 @@ begin
    n14.Checked:=false;
 end;
 
-
 procedure TMain_Form.ToolButton17Click(Sender: TObject);
 begin
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).SimpleSolve_MnuClick(Sender);
 end;
-
 
 procedure TMain_Form.ToolButton18Click(Sender: TObject);
 begin
@@ -1206,12 +1198,10 @@ begin
      Ferma_SelectMetod.Show;
 end;
 
-
 procedure TMain_Form.SimpleResult_TBClick(Sender: TObject);
 begin
    Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).SimpleResults_MnuClick(Sender);
 end;
-
 
 procedure TMain_Form.ToolButton21Click(Sender: TObject);
 begin
@@ -1226,7 +1216,6 @@ begin
      Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).N13Click(Sender);
   end;
 end;
-
 
 procedure TMain_Form.ToolButton7Click(Sender: TObject);
 var
@@ -1295,7 +1284,8 @@ end;
 
 procedure TMain_Form.ContentsClick(Sender: TObject);
 begin
-   Application.HelpCommand(HELP_FINDER,0);
+   //Application.HelpCommand(HELP_FINDER,0);
+   ShellExecute(Handle, 'open', PChar(ExtractFilePath(Application.ExeName) + 'help.chm'), nil, nil, SW_SHOW);
 end;
 
 procedure TMain_Form.PlastKonButtonClick(Sender: TObject);
@@ -1471,7 +1461,6 @@ begin
 
 end;
 
-
 procedure TMain_Form.NewTOK_MnuClick(Sender: TObject);
 var
    t:Ttok;
@@ -1499,18 +1488,15 @@ begin
    end;
 end;
 
-
 procedure TMain_Form.SimpleSolveClick(Sender: TObject);
 begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).SimpleSolve_MnuClick(Sender);
 end;
 
-
 procedure TMain_Form.ToolButton25Click(Sender: TObject);
 begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).SolveOpt_MnuClick(Sender);
 end;
-
 
 procedure TMain_Form.Plast_SimpReztextClick(Sender: TObject);
 begin
@@ -1522,19 +1508,16 @@ begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).o_text_mnuClick(Sender);
 end;
 
-
 procedure TMain_Form.Plast_TolRezGraphClick(Sender: TObject);
 begin
    Plast_M.TPlast_Form(Main_Form.ActiveMDIChild).OptResults_MnuClick(Sender);
 end;
-
 
 procedure TMain_Form.TokKonButtonClick(Sender: TObject);
 begin
    if TokKonButton.Down = False then TOK_Fd_Form.Visible:=False
    else TOK_Fd_Form.Visible:=TRUE;
 end;
-
 
 procedure TMain_Form.TokNumberButtonClick(Sender: TObject);
 var
@@ -1597,7 +1580,6 @@ begin
    tokRegionSizeForm.YSize.Text:=FloatToStr(t.ym[37]);
 
    tokRegionSizeForm.ShowModal
-
 
 end;
 
@@ -1697,7 +1679,6 @@ begin
    Timer1.Destroy;
 
 end;
-
 
 procedure TMain_Form.newClick(Sender: TObject);
 begin
@@ -1903,7 +1884,6 @@ begin
  if (MouseX1<>MouseX2) or (MouseY1<>MouseY2) then SelectionIsOK:=True
  else SelectionIsOK:=False;
 end;
-
 
 // Обработчик переключения режима расширенной встравки -------------------------
 procedure TMain_Form.SelectionMode(Form: TForm; Activate: Boolean);
@@ -2195,7 +2175,6 @@ begin
 end;
 // Конец // Гришанин Вадим
 
-
 procedure TMain_Form.Sort(Sender: TObject);
 var
 i,j: integer;
@@ -2225,6 +2204,85 @@ begin
       sorted:=true;
   end;
 
+end;
+
+procedure TMain_Form.TokButtonUpClick(Sender: TObject);
+begin
+  Main_Form.TOK_Graph_Enter_Panel.Align := alTop;
+end;
+
+procedure TMain_Form.TokButtonDownClick(Sender: TObject);
+begin
+   Main_Form.TOK_Graph_Enter_Panel.Align := alRight;
+end;
+
+procedure TMain_Form.TokPanelMoveClick(Sender: TObject);
+begin
+  if(TokPanelPosition = 3) then
+    TokPanelPosition := 0
+  else
+    TokPanelPosition := TokPanelPosition +1;
+
+  case TokPanelPosition of
+
+  0:
+    Main_Form.TOK_Graph_Enter_Panel.Align := alBottom;
+
+  1:
+    Main_Form.TOK_Graph_Enter_Panel.Align := alTop;
+
+  2:
+    Main_Form.TOK_Graph_Enter_Panel.Align := alLeft;
+
+  3:
+    Main_Form.TOK_Graph_Enter_Panel.Align := alRight;
+  end;
+end;
+
+procedure TMain_Form.PlastButtonMoveClick(Sender: TObject);
+begin
+  if(PlastPanelPosition = 3) then
+    PlastPanelPosition := 0
+  else
+    PlastPanelPosition := PlastPanelPosition +1;
+
+  case PlastPanelPosition of
+
+  0:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alBottom;
+
+  1:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alTop;
+
+  2:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alLeft;
+
+  3:
+    Main_Form.Plast_Graph_Enter_Panel.Align := alRight;
+  end;
+end;
+
+procedure TMain_Form.FermaButtonMoveClick(Sender: TObject);
+begin
+  if(FermaPanelPosition = 3) then
+    FermaPanelPosition := 0
+  else
+    FermaPanelPosition := FermaPanelPosition +1;
+
+  case FermaPanelPosition of
+
+  0:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alBottom;
+
+  1:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alTop;
+
+  2:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alLeft;
+
+  3:
+    Main_Form.Ferma_Graph_Enter_Panel.Align := alRight;
+  end;
 end;
 
 end.

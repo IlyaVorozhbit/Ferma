@@ -44,7 +44,7 @@ type
     procedure Perem_ChBClick(Sender: TObject);
     procedure N1Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
-    
+
   private
     { Private declarations }
     nst,nyz,scale:integer;
@@ -109,7 +109,7 @@ if ToolButton.ImageIndex=1 then
       Pen.Mode:=pmCopy;
       Pen.color:=clGray;
       Pen.width:=1;
-      
+
       coord_axis_x:=50;
       coord_axis_y:=60;
       coord_axis_x1:=50;
@@ -332,7 +332,7 @@ end // Рисовали деформации
       MoveTo(x_max-coord_axis_x1+15,y_max-coord_axis_y);LineTo(x_max-coord_axis_x1+10,y_max-5-coord_axis_y);
       MoveTo(coord_axis_x+50,y_max-coord_axis_y+10);LineTo(coord_axis_x+50,coord_axis_y1-15); // Ось Y
       LineTo(coord_axis_x+45,coord_axis_y1-10);
-      MoveTo(coord_axis_x+50,coord_axis_y1-15);LineTo(coord_axis_x+55,coord_axis_y1-10);  
+      MoveTo(coord_axis_x+50,coord_axis_y1-15);LineTo(coord_axis_x+55,coord_axis_y1-10);
 
       brush.color:=clBtnFace;
       font.name:='times new roman';
@@ -576,7 +576,7 @@ Minus_SBtn.Top:=Napr_PaintBox.Height+3;
           if x1>=x2 then begin xtop:=x1;xbot:=x2;end else begin xtop:=x2;xbot:=x1;end;
           if y1>=y2 then begin ytop:=y1;ybot:=y2;end else begin ytop:=y2;ybot:=y1;end;
 
-          Pen.Color:=clYellow;
+          Pen.Color:=clOlive;
           Pen.Width:=2;
 
           if X1<>X2 then
@@ -607,7 +607,7 @@ Minus_SBtn.Top:=Napr_PaintBox.Height+3;
          end;
        end;
      end;
-      Pen.Color:=clYellow;
+      Pen.Color:=clOlive;
       Pen.Width:=2;
       MoveTo(20-6,12-6);
       LineTo(20+7,12+5);
