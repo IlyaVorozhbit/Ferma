@@ -1284,7 +1284,8 @@ end;
 
 procedure TMain_Form.ContentsClick(Sender: TObject);
 begin
-   Application.HelpCommand(HELP_FINDER,0);
+   //Application.HelpCommand(HELP_FINDER,0);
+   ShellExecute(Handle, 'open', PChar(ExtractFilePath(Application.ExeName) + 'help.chm'), nil, nil, SW_SHOW);
 end;
 
 procedure TMain_Form.PlastKonButtonClick(Sender: TObject);
