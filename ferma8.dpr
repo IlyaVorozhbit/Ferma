@@ -70,7 +70,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'ÑÀÏÐ Ferma 8';
+  Application.Title := 'ÑÀÏÐ Ferma 8.1';
   Application.HelpFile := 'Ferma.hlp';
   Application.CreateForm(TMain_Form, Main_Form);
   Application.CreateForm(TFilesList_Form, FilesList_Form);

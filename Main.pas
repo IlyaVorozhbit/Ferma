@@ -2169,7 +2169,7 @@ begin
    Main_Form.TOK_OK_PMI.Checked        :=false;
    Main_Form.TOK_NO_PMI.Checked        :=true;
    Main_Form.F_Save_TBtn.Enabled:=false;
-   Main_Form.Caption:='ÑÀÏÐ Ferma 8';
+   Main_Form.Caption:='ÑÀÏÐ Ferma 8.1';
    Main_Form.Main_Panel.Visible:=true;
 
 end;
