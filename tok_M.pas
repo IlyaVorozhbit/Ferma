@@ -458,7 +458,7 @@ begin
       if Main_Form.MDIChildCount=1 then Main_form.Main_Panel.Visible:=true;
 //моя вставочка
       Main_Form.MainMenu1.Items[1].Enabled:=False;
-      Main_Form.Caption:='САПР Ferma 8';
+      Main_Form.Caption:='САПР Ferma 8.1';
       Main_Form.TOK_Graph_Enter_Panel.Visible:=False;
       TOK_FD_Form.first_show_FD_form:=True;
       TOK_FD_Form.Close;
@@ -863,7 +863,7 @@ begin
   else
     Main_Form.T_Save_TBtn.Enabled            :=false;
 //  Main_Form.Save_TBtn.Enabled:=true; my comment
-  Main_Form.Caption:='САПР Ferma 8 - подсистема '+#39+'ТОК'+#39;
+  Main_Form.Caption:='САПР Ferma 8.1 - подсистема '+#39+'ТОК'+#39;
 
   Main_Form.Ferma_Panel.Visible:=false;
 //  Main_Form.Ferm_ToolBar.Visible:=false; my comment
@@ -875,7 +875,7 @@ begin
   Plast_FD_Form.Visible:=False;
 
   Main_Form.Save_TBtn.Enabled:=true;
-  Main_Form.Caption:='САПР Ferma 8 - подсистема '+#39+'ТОК'+#39;
+  Main_Form.Caption:='САПР Ferma 8.1 - подсистема '+#39+'ТОК'+#39;
 
   Main_Form.TOK_Panel.Visible:=true;
 //  Main_Form.TOK_ToolBar.Visible:=true; my comment
@@ -1228,7 +1228,7 @@ begin
  Main_Form.StatusBar1.Panels[0].Text :='';
  Main_Form.StatusBar1.Panels[1].Text :='';
  Main_Form.StatusBar1.Panels[2].Text :='';
- Main_Form.Caption:='САПР Ferma 8';
+ Main_Form.Caption:='САПР Ferma 8.1';
 
  sn:= main_form.tok_sn_cbx.itemindex+1;
  if tok.nsm=0 then sn:=0;

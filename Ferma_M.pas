@@ -727,7 +727,7 @@ begin
           if num_ferm=1 then
           begin
                Main_Form.MainMenu1.Items[1].Enabled     :=false;
-               Main_Form.Caption                        :='САПР Ferma 8';
+               Main_Form.Caption                        :='САПР Ferma 8.1';
                Main_Form.Ferma_Graph_Enter_Panel.Visible:=false;
                Ferma_Fd_Form.first_show_FD_form         :=true;
                Ferma_Fd_Form.Close;
@@ -1442,7 +1442,7 @@ begin
        Main_Form.F_Save_TBtn.Enabled            :=true
      else
        Main_Form.F_Save_TBtn.Enabled            :=false;
-     Main_Form.Caption                        :='САПР Ferma 8 - подсистема '+#39+'Ферменная конструкция'+#39;
+     Main_Form.Caption                        :='САПР Ferma 8.1 - подсистема '+#39+'Ферменная конструкция'+#39;
 
      Main_Form.Plast_Panel.Visible            :=false;
      Main_Form.Plast_Graph_Enter_Panel.Visible:=false;
@@ -3743,7 +3743,7 @@ begin
      Main_Form.StatusBar1.Panels[0].Text               :='';
      Main_Form.StatusBar1.Panels[1].Text               :='';
      Main_Form.StatusBar1.Panels[2].Text               :='';
-     Main_Form.Caption                                 :='САПР Ferma 8';
+     Main_Form.Caption                                 :='САПР Ferma 8.1';
 end;
 
 procedure TFerma_Form.FormShow(Sender: TObject);

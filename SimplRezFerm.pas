@@ -74,6 +74,7 @@ type
     peremBox: TCheckBox;
     Label2: TLabel;
     Image7: TImage;
+    tmr1: TTimer;
     procedure Moves_BtnClick(Sender: TObject);
     procedure Sn_CBxChange(Sender: TObject);
     procedure FormStart;
@@ -96,6 +97,7 @@ type
     procedure chbZag2Click(Sender: TObject);
     procedure mi0Click(Sender: TObject);
     procedure check_decimalClick(Sender: TObject);
+    procedure tmr1Timer(Sender: TObject);
 
 
   private
@@ -151,6 +153,7 @@ var
   nsn:integer;
   tok_name:string;
   project_changed,lastwaswithouttok:boolean;
+     is_blinking_red_color: boolean;
   implementation
 
 uses Ferma_FD, Ferm_Dat, FermOptResults;
@@ -443,6 +446,10 @@ var
   MinV,MaxV,MaxX,MaxY:extended;
   j:integer;
   MaxCol,MaxRow,MinCol,MinRow:integer;
+  Acol, Arow: integer;
+   Rect: TRect;
+   const
+  CharOffset = 3;
   begin
   //  Перемещения
    begin
@@ -804,11 +811,29 @@ if ((strtoint(lambda_edit.text)<50)or(strtoint(lambda_edit.text)>220))
 						  if(check_decimal.Checked = true) then
 						  	Cells[Sgim_cells[i,j]+10,i]:=formatFloat('0.########',(abs(ps[i,j]*start_S[i])/sd_sg)*(li[i]/strtofloat(lambda_edit.text))*(li[i]/strtofloat(lambda_edit.text)))
 					  	else
-						  	Cells[Sgim_cells[i,j]+10,i]:=formatFloat('0.00e+00',(abs(ps[i,j]*start_S[i])/sd_sg)*(li[i]/strtofloat(lambda_edit.text))*(li[i]/strtofloat(lambda_edit.text)));
-              end;
+                begin
+						  	  Cells[Sgim_cells[i,j]+10,i]:=formatFloat('0.00e+00',(abs(ps[i,j]*start_S[i])/sd_sg)*(li[i]/strtofloat(lambda_edit.text))*(li[i]/strtofloat(lambda_edit.text)));
+                  //if(Cells[Sgim_cells[i,j]+10,i] > 2) then
+
+                end;
+
+              end
 
           end;
      end;
+
+  {for i:=1 to nst do
+    begin
+      if (Acol=3)and(Arow = i) then
+      with Param_grd.canvas do
+      begin
+        brush.Color:= InertiaColor;
+        fillrect( rect );
+        font.color := clBlack;
+        textout(rect.left + CharOffset-1,
+          rect.top + CharOffset-1, Param_grd.Cells[Sgim_cells[i,j]+10,i]);
+        end;
+    end;}
   {else
     begin
   MaxTension_Edt.Text:=FormatFloat('0.000e+00',sd);
@@ -915,9 +940,11 @@ if ((strtoint(lambda_edit.text)<50)or(strtoint(lambda_edit.text)>220))
 
 
   end;
+
   GridClean(Param_grd);
+
   param_grd.Cells[1,0]:=Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).Ferm.s_lin+'2';
-  self.chbZag2Click( chbZag2 );  
+  self.chbZag2Click( chbZag2 );
   end;
 
 procedure TSimpleFermResult_Form.Sn_CBxChange(Sender: TObject);
@@ -933,6 +960,7 @@ var
  Start_Value:extended;
  Current_Ferm:TFerm;
 begin
+ is_blinking_red_color := False;
  self.Height := self.Height - 50;
  caption:='Результаты расчета на прочность для '+ExtractFileName(Ferma_M.TFerma_Form(Main_Form.ActiveMDIChild).real_fname);
  NumOk:=True;
@@ -1076,7 +1104,7 @@ begin
                   end;
      5..7       : begin
                       if  aCol=kmin[aRow] then begin
-                          brush.Color:= MinSafetyFactorColor;
+                          brush.Color:= Rgb(202, 252, 109);//MinSafetyFactorColor;
                       end else begin
                           brush.Color:= Param_Grd.Color;
                       end;
@@ -1125,7 +1153,7 @@ begin
   if (Acol=Min_K_Cells[i,1])and(Arow = Min_K_Cells[i,2]) then
   with Param_grd.canvas do
   begin
-    brush.Color:= SafetyFactorColor;
+    brush.Color:=  RGB( 202,252, 109);//SafetyFactorColor;
     fillrect( rect );
     font.color := clBlack;
     textout(rect.left + CharOffset-1,
@@ -1165,7 +1193,7 @@ begin
   if (Acol=Max_I_Cells[i,1])and(Arow = Max_I_Cells[i,2]) then
   with Param_grd.canvas do
   begin
-    brush.Color:= InertiaColor;
+    brush.Color:=  RGB( 202,252, 109);
     fillrect( rect );
     font.color := clBlack;
     textout(rect.left + CharOffset-1,
@@ -1175,8 +1203,47 @@ begin
 
 end;
 
-       end;
 
+  for i:=1 to nst do
+       begin
+        //if (Acol=Max_I_Cells[i,1])and(Arow = Max_I_Cells[i,2]) then
+        if(((Acol = 11) or (Acol = 12) or (Acol = 13)) and (ARow=i)) then
+        with Param_grd.canvas do
+        begin
+
+        if((My_strtofloat(Param_grd.Cells[11,i]) > 23.5) and (Acol = 11)) then begin
+
+          brush.Color:= InertiaColor;
+          fillrect( rect );
+          font.Color:= clWhite;
+
+          textout(rect.left + CharOffset-1,
+            rect.top + CharOffset-1, Param_grd.Cells[11,i]);
+          end;
+
+          if((My_strtofloat(Param_grd.Cells[12,i]) > 23.5) and (Acol = 12)) then begin
+
+          brush.Color:= InertiaColor;
+          fillrect( rect );
+          font.Color:= clWhite;
+
+          textout(rect.left + CharOffset-1,
+            rect.top + CharOffset-1, Param_grd.Cells[12,i]);
+          end;
+
+          if((My_strtofloat(Param_grd.Cells[13,i]) > 23.5) and (Acol = 13)) then begin
+
+          brush.Color:= InertiaColor;
+          fillrect( rect );
+          font.Color:= clWhite;
+
+          textout(rect.left + CharOffset-1,
+            rect.top + CharOffset-1, Param_grd.Cells[13,i]);
+          end;
+        end;
+
+       end;
+end;
 
 
 procedure TSimpleFermResult_Form.chbZag2Click(Sender: TObject);
@@ -1665,7 +1732,7 @@ begin
 if Flag2 = false then
        begin
        Flag2:=true;
-       zag1.caption:='Усилия';
+       zag1.caption:='Силы';
        end
 else   begin
        Flag2:=false;
@@ -1687,6 +1754,22 @@ end;
 procedure TSimpleFermResult_Form.check_decimalClick(Sender: TObject);
 begin
   SimpleFermResult_Form.Moves_BtnClick(self);
+end;
+
+procedure TSimpleFermResult_Form.tmr1Timer(Sender: TObject);
+var i, Acol, ARow: Integer;
+var  Rect: TRect;
+const CharOffset = 3;
+begin
+
+  //if(is_blinking_red_color = False) then
+  //  is_blinking_red_color := True
+  //else
+  //  is_blinking_red_color := False;
+
+  //self.Repaint();
+  //Param_Grd.Repaint();
+
 end;
 
 end.

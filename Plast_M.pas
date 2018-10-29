@@ -496,7 +496,7 @@ begin
    if num_Plast=1 then
      begin
       Main_Form.MainMenu1.Items[1].Enabled:=False;
-      Main_Form.Caption:='ÑÀÏÐ Ferma 8';
+      Main_Form.Caption:='ÑÀÏÐ Ferma 8.1';
       Main_Form.Plast_Graph_Enter_Panel.Visible:=False;
       Plast_Fd_Form.first_show_FD_form:=True;
       Plast_FD_Form.Close;
@@ -1072,7 +1072,7 @@ if plast=nil then Exit;
   else
    Main_Form.P_Save_TBtn.Enabled            :=false;
 //  Main_Form.Save_TBtn.Enabled:=true; my comment
-  Main_Form.Caption:='ÑÀÏÐ Ferma 8 - ïîäñèñòåìà '+#39+'Ïëàñòèíà'+#39;
+  Main_Form.Caption:='ÑÀÏÐ Ferma 8.1 - ïîäñèñòåìà '+#39+'Ïëàñòèíà'+#39;
   Main_Form.Ferma_Panel.Visible:=False;
 //  Main_Form.Ferm_ToolBar.Visible:=False;  my comment
   Main_Form.Ferma_Graph_Enter_Panel.Visible:=False;
@@ -2389,7 +2389,7 @@ begin
  Main_Form.StatusBar1.Panels[0].Text :='';
  Main_Form.StatusBar1.Panels[1].Text :='';
  Main_Form.StatusBar1.Panels[2].Text :='';
- Main_Form.Caption:='ÑÀÏÐ Ferma 8';
+ Main_Form.Caption:='ÑÀÏÐ Ferma 8.1';
 end;
 
 
