@@ -1104,7 +1104,7 @@ begin
                   end;
      5..7       : begin
                       if  aCol=kmin[aRow] then begin
-                          brush.Color:= MinSafetyFactorColor;
+                          brush.Color:= Rgb(202, 252, 109);//MinSafetyFactorColor;
                       end else begin
                           brush.Color:= Param_Grd.Color;
                       end;
@@ -1153,7 +1153,7 @@ begin
   if (Acol=Min_K_Cells[i,1])and(Arow = Min_K_Cells[i,2]) then
   with Param_grd.canvas do
   begin
-    brush.Color:= SafetyFactorColor;
+    brush.Color:=  RGB( 202,252, 109);//SafetyFactorColor;
     fillrect( rect );
     font.color := clBlack;
     textout(rect.left + CharOffset-1,
@@ -1193,7 +1193,7 @@ begin
   if (Acol=Max_I_Cells[i,1])and(Arow = Max_I_Cells[i,2]) then
   with Param_grd.canvas do
   begin
-    brush.Color:= InertiaColor;
+    brush.Color:=  RGB( 202,252, 109);
     fillrect( rect );
     font.color := clBlack;
     textout(rect.left + CharOffset-1,
@@ -1201,46 +1201,9 @@ begin
     end;
        end;
 
-end
-else  begin
-  {for i:=1 to nst do
-       begin
-        //if (Acol=Max_I_Cells[i,1])and(Arow = Max_I_Cells[i,2]) then
-        if(((Acol = 11) or (Acol = 12) or (Acol = 13)) and (ARow=i)) then
-        with Param_grd.canvas do
-        begin
+end;
 
-        {if(My_strtofloat(Param_grd.Cells[11,i]) > 5) then begin
 
-          brush.Color:= InertiaColor;
-          fillrect( rect );
-          font.color := clBlack;
-          textout(rect.left + CharOffset-1,
-            rect.top + CharOffset-1, Param_grd.Cells[11,i]);
-          end;
-
-                  if(My_strtofloat(Param_grd.Cells[12,i]) > 5) then begin
-
-          brush.Color:= InertiaColor;
-          fillrect( rect );
-          font.color := clBlack;
-          textout(rect.left + CharOffset-1,
-            rect.top + CharOffset-1, Param_grd.Cells[12,i]);
-          end;
-
-                  if(My_strtofloat(Param_grd.Cells[13,i]) > 5) then begin
-
-          brush.Color:= InertiaColor;
-          fillrect( rect );
-          font.color := clBlack;
-          textout(rect.left + CharOffset-1,
-            rect.top + CharOffset-1, Param_grd.Cells[13,i]);
-          end;
-          }
-        //end;
-      //end;}
-
-      
   for i:=1 to nst do
        begin
         //if (Acol=Max_I_Cells[i,1])and(Arow = Max_I_Cells[i,2]) then
@@ -1250,17 +1213,9 @@ else  begin
 
         if((My_strtofloat(Param_grd.Cells[11,i]) > 23.5) and (Acol = 11)) then begin
 
-          if(is_blinking_red_color = True) then
-            brush.Color:= InertiaColor
-          else
-            brush.Color:= clWhite;
-
+          brush.Color:= InertiaColor;
           fillrect( rect );
-
-          if(is_blinking_red_color = True) then
-            font.Color:= clWhite
-          else
-            font.Color:= clBlack;
+          font.Color:= clWhite;
 
           textout(rect.left + CharOffset-1,
             rect.top + CharOffset-1, Param_grd.Cells[11,i]);
@@ -1268,17 +1223,9 @@ else  begin
 
           if((My_strtofloat(Param_grd.Cells[12,i]) > 23.5) and (Acol = 12)) then begin
 
-          if(is_blinking_red_color = True) then
-            brush.Color:= InertiaColor
-          else
-            brush.Color:= clWhite;
-
+          brush.Color:= InertiaColor;
           fillrect( rect );
-
-          if(is_blinking_red_color = True) then
-            font.Color:= clWhite
-          else
-            font.Color:= clBlack;
+          font.Color:= clWhite;
 
           textout(rect.left + CharOffset-1,
             rect.top + CharOffset-1, Param_grd.Cells[12,i]);
@@ -1286,24 +1233,14 @@ else  begin
 
           if((My_strtofloat(Param_grd.Cells[13,i]) > 23.5) and (Acol = 13)) then begin
 
-          if(is_blinking_red_color = True) then
-            brush.Color:= InertiaColor
-          else
-            brush.Color:= clWhite;
-
+          brush.Color:= InertiaColor;
           fillrect( rect );
-
-          if(is_blinking_red_color = True) then
-            font.Color:= clWhite
-          else
-            font.Color:= clBlack;
+          font.Color:= clWhite;
 
           textout(rect.left + CharOffset-1,
             rect.top + CharOffset-1, Param_grd.Cells[13,i]);
           end;
         end;
-
-       end;
 
        end;
 end;
@@ -1795,7 +1732,7 @@ begin
 if Flag2 = false then
        begin
        Flag2:=true;
-       zag1.caption:='Усилия';
+       zag1.caption:='Силы';
        end
 else   begin
        Flag2:=false;
@@ -1825,12 +1762,13 @@ var  Rect: TRect;
 const CharOffset = 3;
 begin
 
-  if(is_blinking_red_color = False) then
-    is_blinking_red_color := True
-  else
-    is_blinking_red_color := False;
+  //if(is_blinking_red_color = False) then
+  //  is_blinking_red_color := True
+  //else
+  //  is_blinking_red_color := False;
 
-  Param_Grd.Repaint();
+  //self.Repaint();
+  //Param_Grd.Repaint();
 
 end;
 
